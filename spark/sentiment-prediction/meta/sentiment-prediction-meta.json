@@ -1,0 +1,22 @@
+{
+  "pipeline_meta": {
+    "name":"sentiment-prediction-pipeline",
+    "description":"sentiment-prediction-pipeline",
+    "type":"sparkml-pipeline-2.0",
+    "runtimeEnvironment": "spark-2.0"
+  },
+  "pipeline_version": {
+  },
+  "model_meta": {
+    "name":"Sentiment Prediction",
+    "description":"Predicts comment sentiment about particular topic for marketing company.",
+    "type":"sparkml-model-2.0",
+    "runtimeEnvironment": "spark-2.0",
+    "pipelineVersionHref": "$Location$",
+    "inputSchema": {"type": "struct","fields": [{"metadata": {}, "type": "string", "name": "tweet", "nullable": true},{"metadata": {}, "type": "string", "name": "sentiment", "nullable": true}]}
+  },
+  "model_version": {
+    "trainingData": {},
+    "modelMetrics": {}
+  }
+}
