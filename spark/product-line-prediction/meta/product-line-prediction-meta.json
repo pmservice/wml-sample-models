@@ -16,7 +16,7 @@
     "inputSchema": {"type": "struct","fields": [{"metadata": {}, "type": "string", "name": "PRODUCT_LINE", "nullable": true},{"metadata": {}, "type": "string", "name": "GENDER", "nullable": true},{"metadata": {}, "type": "integer", "name": "AGE", "nullable": true},{"metadata": {}, "type": "string", "name": "MARITAL_STATUS", "nullable": true},{"metadata": {}, "type": "string", "name": "PROFESSION", "nullable": true}]}
   },
   "model_version": {
-    "trainingData": {},
+    "trainingData": {"connection": {}, "schema" : {}},
     "modelMetrics": {}
   }
 }

@@ -16,7 +16,7 @@
     "inputSchema": {"type": "struct","fields": [{"metadata": {}, "type": "string", "name": "tweet", "nullable": true},{"metadata": {}, "type": "string", "name": "sentiment", "nullable": true}]}
   },
   "model_version": {
-    "trainingData": {},
+    "trainingData": {"connection": {}, "schema" : {}},
     "modelMetrics": {}
   }
 }
