@@ -13,7 +13,7 @@
     "type":"sparkml-model-2.0",
     "runtimeEnvironment": "spark-2.0",
     "pipelineVersionHref": "$Location$",
-    "labelCol":  "sentiment"
+    "labelCol": "sentiment"
   },
   "model_version": {
     "trainingData": {"connection": {}, "schema" : {"type": "struct","fields": [{"metadata": {}, "type": "string", "name": "tweet", "nullable": true},{"metadata": {}, "type": "string", "name": "sentiment", "nullable": true}]}},
