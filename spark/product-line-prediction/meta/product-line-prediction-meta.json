@@ -13,10 +13,10 @@
     "type":"sparkml-model-2.0",
     "runtimeEnvironment": "spark-2.0",
     "pipelineVersionHref": "$Location$",
-    "inputSchema": {"type": "struct","fields": [{"metadata": {}, "type": "string", "name": "PRODUCT_LINE", "nullable": true},{"metadata": {}, "type": "string", "name": "GENDER", "nullable": true},{"metadata": {}, "type": "integer", "name": "AGE", "nullable": true},{"metadata": {}, "type": "string", "name": "MARITAL_STATUS", "nullable": true},{"metadata": {}, "type": "string", "name": "PROFESSION", "nullable": true}]}
+    "labelCol": "PRODUCT_LINE"
   },
   "model_version": {
-    "trainingData": {"connection": {}, "schema" : {}},
+    "trainingData": {"connection": {}, "schema" : {"type": "struct","fields": [{"metadata": {}, "type": "string", "name": "PRODUCT_LINE", "nullable": true},{"metadata": {}, "type": "string", "name": "GENDER", "nullable": true},{"metadata": {}, "type": "integer", "name": "AGE", "nullable": true},{"metadata": {}, "type": "string", "name": "MARITAL_STATUS", "nullable": true},{"metadata": {}, "type": "string", "name": "PROFESSION", "nullable": true}]}},
     "modelMetrics": {}
   }
 }
