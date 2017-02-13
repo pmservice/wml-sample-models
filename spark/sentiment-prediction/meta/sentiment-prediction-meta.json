@@ -1,6 +1,7 @@
 {
   "pipeline_meta": {
     "name":"sentiment-prediction-pipeline",
+    "author":"IBM",
     "description":"sentiment-prediction-pipeline",
     "type":"sparkml-pipeline-2.0",
     "runtimeEnvironment": "spark-2.0"
@@ -10,6 +11,7 @@
   "model_meta": {
     "name":"Sentiment Prediction",
     "description":"Predicts comment sentiment about particular topic for marketing company.",
+    "author":"IBM",
     "type":"sparkml-model-2.0",
     "runtimeEnvironment": "spark-2.0",
     "pipelineVersionHref": "$Location$",
