@@ -2,7 +2,10 @@
   "pipeline_meta": {
     "name":"product-line-prediction-pipeline",
     "description":"product-line-prediction-pipeline",
-    "author":"IBM",
+    "author": {
+      "name": "IBM",
+      "email": "ibm@pl.ibm.com"
+    },
     "type":"sparkml-pipeline-2.0",
     "runtimeEnvironment": "spark-2.0"
   },
@@ -11,7 +14,10 @@
   "model_meta": {
     "name":"Product Line Prediction",
     "description":"Predicts clients' interests in terms of sport product lines for chain stores in Europe.",
-    "author":"IBM",    
+    "author": {
+      "name": "IBM",
+      "email": "ibm@pl.ibm.com"
+    },   
     "type":"sparkml-model-2.0",
     "runtimeEnvironment": "spark-2.0",
     "pipelineVersionHref": "$Location$",
