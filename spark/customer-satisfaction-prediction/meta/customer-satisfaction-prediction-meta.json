@@ -2,6 +2,7 @@
   "pipeline_meta": {
     "name":"customer-satisfaction-prediction-pipeline",
     "description":"customer-satisfaction-prediction-pipeline",
+    "author":"IBM",
     "type":"sparkml-pipeline-2.0",
     "runtimeEnvironment": "spark-2.0"
   },
@@ -10,6 +11,7 @@
   "model_meta": {
     "name":"Customer Satisfaction Prediction",
     "description":"Predicts Telco customer churn.",
+    "author":"IBM",    
     "type":"sparkml-model-2.0",
     "runtimeEnvironment": "spark-2.0",
     "pipelineVersionHref": "$Location$",
