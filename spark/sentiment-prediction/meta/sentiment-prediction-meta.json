@@ -1,8 +1,8 @@
 {
   "pipeline_meta": {
     "name":"sentiment-prediction-pipeline",
-    "author":"IBM",
     "description":"sentiment-prediction-pipeline",
+    "author":"IBM",
     "type":"sparkml-pipeline-2.0",
     "runtimeEnvironment": "spark-2.0"
   },
