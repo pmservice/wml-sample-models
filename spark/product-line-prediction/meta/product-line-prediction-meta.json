@@ -4,7 +4,7 @@
     "description":"product-line-prediction-pipeline",
     "author": {
       "name": "IBM",
-      "email": "ibm@pl.ibm.com"
+      "email": ""
     },
     "type":"sparkml-pipeline-2.0",
     "runtimeEnvironment": "spark-2.0"
@@ -16,7 +16,7 @@
     "description":"Predicts clients' interests in terms of sport product lines for chain stores in Europe.",
     "author": {
       "name": "IBM",
-      "email": "ibm@pl.ibm.com"
+      "email": ""
     },   
     "type":"sparkml-model-2.0",
     "runtimeEnvironment": "spark-2.0",
