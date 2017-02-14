@@ -16,7 +16,7 @@
     "description":"Predicts Telco customer churn.",
     "author": {
       "name": "IBM",
-      "email": "ibm@pl.ibm.com"
+      "email": ""
     },   
     "type":"sparkml-model-2.0",
     "runtimeEnvironment": "spark-2.0",
