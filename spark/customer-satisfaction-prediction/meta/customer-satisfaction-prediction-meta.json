@@ -4,7 +4,7 @@
     "description":"customer-satisfaction-prediction-pipeline",
     "author": {
       "name": "IBM",
-      "email": "ibm@pl.ibm.com"
+      "email": ""
     },
     "type":"sparkml-pipeline-2.0",
     "runtimeEnvironment": "spark-2.0"
