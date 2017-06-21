@@ -1,0 +1,12 @@
+{
+  "modelVersionHref": "$Location$",
+  "pipelineVersionHref":"$Location$",
+  "trainingDataRef": {"connection": {}},
+  "creationTime": "2017-06-21 07:48:35.014000+00:00",
+  "lastUpdated": "2017-06-21 07:48:35.161000+00:00",
+  "authorEmail": "ibm@ibm.com",
+  "authorName": "IBM",
+  "version": "$Location$",
+  "modelType": "scikit-model-0.17",
+  "runtime": "python-3.4"
+}
