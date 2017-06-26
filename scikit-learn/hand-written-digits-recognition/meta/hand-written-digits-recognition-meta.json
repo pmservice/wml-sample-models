@@ -6,7 +6,7 @@
       "name": "IBM",
       "email": ""
     },
-    "type":"scikit-model-0.17",
+    "type":"ibm-sparkml-pipeline-1.0",
     "runtimeEnvironment": "python-3.4"
   },
   "pipeline_version": {
