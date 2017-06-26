@@ -1,12 +1,31 @@
 {
-  "modelVersionHref": "$Location$",
-  "pipelineVersionHref":"$Location$",
-  "trainingDataRef": {"connection": {}},
-  "creationTime": "2017-06-21 07:48:35.014000+00:00",
-  "lastUpdated": "2017-06-21 07:48:35.161000+00:00",
-  "authorEmail": "ibm@ibm.com",
-  "authorName": "IBM",
-  "version": "$Location$",
-  "modelType": "scikit-model-0.17",
-  "runtime": "python-3.4"
+  "pipeline_meta": {
+    "name":"hand-written-digits-recognition-pipeline",
+    "description":"hand-written-digits-recognition-pipeline",
+    "author": {
+      "name": "IBM",
+      "email": ""
+    },
+    "type":"scikit-model-0.17",
+    "runtimeEnvironment": "python-3.4"
+  },
+  "pipeline_version": {
+  },
+  "model_meta": {
+    "name":"hand-written-digits-recognition-pipeline",
+    "description":"This sample model shows how to recognize hand-written digits with IBM Watson Machine Learning.",
+    "author": {
+      "name": "IBM",
+      "email": ""
+    },   
+    "type":"scikit-model-0.17",
+    "runtimeEnvironment": "python-3.4",
+    "pipelineVersionHref": "$Location$",
+    "labelCol": "DIGIT",
+    "trainingDataSchema": {},
+    "inputDataSchema": {}
+  },
+  "model_version": {
+    "trainingDataRef": {"connection": {}}
+  }
 }
