@@ -12,7 +12,7 @@
   "pipeline_version": {
   },
   "model_meta": {
-    "name":"hand-written-digits-recognition-pipeline",
+    "name":"Handwritten Digits Recognition",
     "description":"This sample model shows how to recognize hand-written digits with IBM Watson Machine Learning.",
     "author": {
       "name": "IBM",
