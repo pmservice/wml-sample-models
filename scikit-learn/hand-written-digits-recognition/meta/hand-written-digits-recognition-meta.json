@@ -23,7 +23,7 @@
     "pipelineVersionHref": "$Location$",
     "labelCol": "DIGIT",
     "trainingDataSchema": {},
-    "inputDataSchema": "N/A"
+    "inputDataSchema": {}
   },
   "model_version": {
     "trainingDataRef": {"connection": {}}
