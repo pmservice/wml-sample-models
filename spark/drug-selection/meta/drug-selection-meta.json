@@ -29,9 +29,9 @@
     "trainingDataRef": {
 	"connection": {
 		"db": "BLUDB",
-		"host": "dashdb-entry-yp-dal09-09.services.dal.bluemix.net",
-		"username": "dash11348",
-		"password": "G_2jp_K2avMY"
+ 		"host": "awh-yp-small02.services.dal.bluemix.net",
+		"username": "dash102204",
+		"password": "NweTlYwPY6cu"
 	},
 	"source": {
 		"tablename": "DRUG_TRAIN_DATA_UPDATED",
