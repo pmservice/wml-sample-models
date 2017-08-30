@@ -43,7 +43,7 @@
       "metrics": [{
 	      "threshold": "0.9",
 	      "name": "accuracy",
-	      "value": "0.8709677419354839"
+	      "value": "0.870968"
       }]
     }
   }
