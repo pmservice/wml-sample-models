@@ -41,9 +41,9 @@
     "evaluation": {
       "method": "multiclass",
       "metrics": [{
-	      "threshold": "0.9",
+	      "threshold": 0.9,
 	      "name": "accuracy",
-	      "value": "0.870968"
+	      "value": 0.870968
       }]
     }
   }
