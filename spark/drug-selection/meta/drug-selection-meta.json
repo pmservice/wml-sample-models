@@ -12,7 +12,7 @@
   "pipeline_version": {
   },
   "model_meta": {
-    "name":"Heart Drug Selection",
+    "name":"Best Heart Drug Selection",
     "description":"Predicts the best drug for a patient with heart disease.",
     "author": {
       "name": "IBM",
