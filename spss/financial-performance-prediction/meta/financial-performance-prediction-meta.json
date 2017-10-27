@@ -1,0 +1,32 @@
+{
+  "pipeline_meta": {
+    "name":"financial-performance-prediction-pipeline",
+    "description":"financial-performance-prediction-pipeline",
+    "author": {
+      "name": "IBM",
+      "email": ""
+    },
+    "type":"spss-modeler-model-17.0",
+    "runtimeEnvironment": "spss-modeler-17.0"
+  },
+  "pipeline_version": {
+  },
+  "model_meta": {
+    "name":"Financial Performance Prediction",
+    "description":"Predicts financial performance of a company",
+    "author": {
+      "name": "IBM",
+      "email": ""
+    },   
+    "type":"spss-modeler-model-17.0",
+    "runtimeEnvironment": "spss-modeler-17.0",
+    "pipelineVersionHref": "$Location$",
+    "labelCol": "VALUE",
+    "trainingDataSchema": {"type": "struct","fields": [{"metadata": {}, "type": "string", "name": "DATE", "nullable": true},{"metadata": {}, "type": "double", "name": "VALUE", "nullable": true}]},
+    "inputDataSchema": {"type": "struct","fields": [{"metadata": {}, "type": "string", "name": "DATE", "nullable": true},{"metadata": {}, "type": "double", "name": "VALUE", "nullable": true}]}
+},
+   "model_version": {
+    "trainingDataRef": {"connection": {}}
+}
+}
+
