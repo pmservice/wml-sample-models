@@ -1,0 +1,31 @@
+{
+  "pipeline_meta": {
+    "name":"customer-satisfaction-prediction-pipeline",
+    "description":"customer-satisfaction-prediction-pipeline",
+    "author": {
+      "name": "IBM",
+      "email": ""
+    },
+    "type":"spss-modeler-model-17.0",
+    "runtimeEnvironment": "spss-modeler-17.0"
+  },
+  "pipeline_version": {
+  },
+  "model_meta": {
+    "name":"Customer Satisfaction Prediction",
+    "description":"Predicts customer satisfaction in telco churn model",
+    "author": {
+      "name": "IBM",
+      "email": ""
+    },   
+    "type":"spss-modeler-model-17.0",
+    "runtimeEnvironment": "spss-modeler-17.0",
+    "pipelineVersionHref": "$Location$",
+    "labelCol": "Churn",
+    "trainingDataSchema": {"type": "struct","fields": [{"metadata": {}, "type": "string", "name": "customerID", "nullable": true},{"metadata": {}, "type": "string", "name": "gender", "nullable": true},{"metadata": {}, "type": "integer", "name": "SeniorCitizen", "nullable": true},{"metadata": {}, "type": "string", "name": "Partner", "nullable": true},{"metadata": {}, "type": "string", "name": "Dependents", "nullable": true},{"metadata": {}, "type": "integer", "name": "tenure", "nullable": true},{"metadata": {}, "type": "string", "name": "PhoneService", "nullable": true},{"metadata": {}, "type": "string", "name": "MultipleLines", "nullable": true},{"metadata": {}, "type": "string", "name": "InternetService", "nullable": true},{"metadata": {}, "type": "string", "name": "OnlineSecurity", "nullable": true},{"metadata": {}, "type": "string", "name": "OnlineBackup", "nullable": true},{"metadata": {}, "type": "string", "name": "DeviceProtection", "nullable": true},{"metadata": {}, "type": "string", "name": "TechSupport", "nullable": true},{"metadata": {}, "type": "string", "name": "StreamingTV", "nullable": true},{"metadata": {}, "type": "string", "name": "StreamingMovies", "nullable": true},{"metadata": {}, "type": "string", "name": "Contract", "nullable": true},{"metadata": {}, "type": "string", "name": "PaperlessBilling", "nullable": true},{"metadata": {}, "type": "string", "name": "PaymentMethod", "nullable": true},{"metadata": {}, "type": "double", "name": "MonthlyCharges", "nullable": true},{"metadata": {}, "type": "string", "name": "TotalCharges", "nullable": true},{"metadata": {}, "type": "string", "name": "Churn", "nullable": true}]},
+    "inputDataSchema": {"type": "struct","fields": [{"metadata": {}, "type": "string", "name": "customerID", "nullable": true},{"metadata": {}, "type": "string", "name": "gender", "nullable": true},{"metadata": {}, "type": "integer", "name": "SeniorCitizen", "nullable": true},{"metadata": {}, "type": "string", "name": "Partner", "nullable": true},{"metadata": {}, "type": "string", "name": "Dependents", "nullable": true},{"metadata": {}, "type": "integer", "name": "tenure", "nullable": true},{"metadata": {}, "type": "string", "name": "PhoneService", "nullable": true},{"metadata": {}, "type": "string", "name": "MultipleLines", "nullable": true},{"metadata": {}, "type": "string", "name": "InternetService", "nullable": true},{"metadata": {}, "type": "string", "name": "OnlineSecurity", "nullable": true},{"metadata": {}, "type": "string", "name": "OnlineBackup", "nullable": true},{"metadata": {}, "type": "string", "name": "DeviceProtection", "nullable": true},{"metadata": {}, "type": "string", "name": "TechSupport", "nullable": true},{"metadata": {}, "type": "string", "name": "StreamingTV", "nullable": true},{"metadata": {}, "type": "string", "name": "StreamingMovies", "nullable": true},{"metadata": {}, "type": "string", "name": "Contract", "nullable": true},{"metadata": {}, "type": "string", "name": "PaperlessBilling", "nullable": true},{"metadata": {}, "type": "string", "name": "PaymentMethod", "nullable": true},{"metadata": {}, "type": "double", "name": "MonthlyCharges", "nullable": true},{"metadata": {}, "type": "string", "name": "TotalCharges", "nullable": true}]}
+},
+   "model_version": {
+    "trainingDataRef": {"connection": {}}
+}
+}
