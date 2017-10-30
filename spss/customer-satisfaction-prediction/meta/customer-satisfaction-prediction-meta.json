@@ -6,7 +6,7 @@
       "name": "IBM",
       "email": ""
     },
-    "type":"spss-modeler-model-17.0",
+    "type":"ibm-sparkml-pipeline-1.0",
     "runtimeEnvironment": "spss-modeler-17.0"
   },
   "pipeline_version": {
