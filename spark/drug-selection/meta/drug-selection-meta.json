@@ -1,5 +1,5 @@
 {
-  pipeline_meta: {
+  "pipeline_meta": {
 	  "name": "Drug model experiment",
   "description": "Defines model to predict drug for patient with heart disease",
   "framework": {
@@ -32,7 +32,7 @@
     "email": ""
   }  
     },
-  model_meta: {
+  "model_meta": {
   "framework": {
     "name": "MLlib",
     "version": "2.0.1",
