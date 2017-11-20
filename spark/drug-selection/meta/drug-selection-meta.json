@@ -35,10 +35,10 @@
   "model_meta": {
   "framework": {
     "name": "MLlib",
-    "version": "2.0.1",
+    "version": "2.0",
     "runtimes": [{
                    "name": "spark",
-                   "version": "2.0.1"
+                   "version": "2.0"
                  }]
 				},
   "name": "Best Heart Drug Selection",
