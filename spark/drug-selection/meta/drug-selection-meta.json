@@ -1,4 +1,38 @@
 {
+  pipeline_meta: {
+	  "name": "Drug model experiment",
+  "description": "Defines model to predict drug for patient with heart disease",
+  "framework": {
+    "name": "MLlib",
+    "version": "2.0.1",
+    "runtimes": [
+      {
+        "name": "spark",
+        "version": "2.0.1"
+      }
+    ]
+  },
+  "training_data_reference": [
+    {
+      "name": "Drug training data",
+      "connection": {
+		"db": "BLUDB",
+		"host": "dashdb-entry-yp-dal09-09.services.dal.bluemix.net",
+		"username": "dash11348",
+		"password": "G_2jp_K2avMY"	      
+      },
+      "source": {
+		"tablename": "DRUG_TRAIN_DATA_UPDATED",
+		"type": "dashdb"	      
+      }
+    }
+  ],
+  "author": {
+    "name": "IBM",
+    "email": ""
+  }  
+    },
+  model_meta: {
   "framework": {
     "name": "MLlib",
     "version": "2.0.1",
@@ -86,4 +120,5 @@
     ]
   },
   "content_location": "$Location$"  
+ }
 }
