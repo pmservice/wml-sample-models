@@ -43,7 +43,7 @@
 				},
   "name": "Best Heart Drug Selection",
   "description": "Predicts the best drug for a patient with heart disease.",
-  "experiment_url": "",
+  "experiment_url": "$Location$",
   "author": {
               "name": "IBM",
               "email": ""
@@ -118,7 +118,6 @@
         "value": 0.870968
       }
     ]
-  },
-  "content_location": "$Location$"  
+  }
  }
 }
