@@ -7,7 +7,7 @@
       "email": ""
     },
     "type":"ibm-sparkml-pipeline-1.0",
-    "runtimeEnvironment": "python-3.4"
+    "runtimeEnvironment": "python-3.5"
   },
   "pipeline_version": {
   },
@@ -19,7 +19,7 @@
       "email": ""
     },   
     "type":"scikit-model-0.17",
-    "runtimeEnvironment": "python-3.4",
+    "runtimeEnvironment": "python-3.5",
     "pipelineVersionHref": "$Location$",
     "labelCol": "DIGIT",
     "trainingDataSchema": {},
