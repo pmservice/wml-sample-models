@@ -1,0 +1,35 @@
+model_definition:
+  name: tf-mnist-showtest1
+  author: DL Developer
+  description: Simple MNIST model implemented in TF
+  framework:
+    name: tensorflow
+    version: 1.2-py3
+  execution:
+    command: python3 convolutional_network.py --trainImagesFile ${DATA_DIR}/train-images-idx3-ubyte.gz
+      --trainLabelsFile ${DATA_DIR}/train-labels-idx1-ubyte.gz --testImagesFile ${DATA_DIR}/t10k-images-idx3-ubyte.gz
+      --testLabelsFile ${DATA_DIR}/t10k-labels-idx1-ubyte.gz --learningRate 0.001
+      --trainingIters 20000
+    resourceType: small
+training_data_reference:
+- connection:
+    auth_url: "https://identity.open.softlayer.com/v3"
+    user_name: "admin_a857a68e6ace189462e48b0d8b41ec95feb0a42d"
+    password: "j-7Oiz{pb8EPSOPe"
+    region: "dallas"
+    domain_name: "1040447"
+    project_id: "88f532ddc4ef41fc8ae0ed060eaf965c"
+  source:
+    bucket: test_data
+    type: bluemix_objectstore
+training_results_reference:
+  connection:
+    auth_url: "https://identity.open.softlayer.com/v3"
+    user_name: "admin_a857a68e6ace189462e48b0d8b41ec95feb0a42d"
+    password: "j-7Oiz{pb8EPSOPe"
+    region: "dallas"
+    domain_name: "1040447"
+    project_id: "88f532ddc4ef41fc8ae0ed060eaf965c"
+  target:
+    bucket: test_results
+    type: bluemix_objectstore
