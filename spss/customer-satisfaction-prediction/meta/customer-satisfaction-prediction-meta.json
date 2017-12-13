@@ -7,10 +7,16 @@
       "email": ""
     },
 	
-	"framework": {
-    "name": "spss-modeler",
-    "version": "18.1"
-     }    
+	 "framework": {
+    "name": "MLlib",
+    "version": "2.0",
+    "runtimes": [
+      {
+        "name": "spark",
+        "version": "2.0"
+      }
+    ]
+}   
   },
    "model_meta": {
     "name":"Customer Satisfaction Prediction",
