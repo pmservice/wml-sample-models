@@ -9,14 +9,8 @@
 	
 	"framework": {
     "name": "spss-modeler",
-    "version": "18.1",
-    "runtimes": [
-      {
-        "name": "spss",
-		"version": ""
-      }
-    ]
-  }    
+    "version": "18.1"
+     }    
   },
    "model_meta": {
     "name":"Customer Satisfaction Prediction",
@@ -27,13 +21,8 @@
     },   
     "framework": {
     "name": "spss-modeler",
-    "version": "18.1",
-    "runtimes": [
-      {
-        "name": "spss",
-		"version": ""
-      }
-    ]
+    "version": "18.1"
+   
   },
     "labelCol": "Churn",
     "trainingDataSchema": {"type": "struct","fields": [{"metadata": {}, "type": "string", "name": "customerID", "nullable": true},{"metadata": {}, "type": "string", "name": "gender", "nullable": true},{"metadata": {}, "type": "integer", "name": "SeniorCitizen", "nullable": true},{"metadata": {}, "type": "string", "name": "Partner", "nullable": true},{"metadata": {}, "type": "string", "name": "Dependents", "nullable": true},{"metadata": {}, "type": "integer", "name": "tenure", "nullable": true},{"metadata": {}, "type": "string", "name": "PhoneService", "nullable": true},{"metadata": {}, "type": "string", "name": "MultipleLines", "nullable": true},{"metadata": {}, "type": "string", "name": "InternetService", "nullable": true},{"metadata": {}, "type": "string", "name": "OnlineSecurity", "nullable": true},{"metadata": {}, "type": "string", "name": "OnlineBackup", "nullable": true},{"metadata": {}, "type": "string", "name": "DeviceProtection", "nullable": true},{"metadata": {}, "type": "string", "name": "TechSupport", "nullable": true},{"metadata": {}, "type": "string", "name": "StreamingTV", "nullable": true},{"metadata": {}, "type": "string", "name": "StreamingMovies", "nullable": true},{"metadata": {}, "type": "string", "name": "Contract", "nullable": true},{"metadata": {}, "type": "string", "name": "PaperlessBilling", "nullable": true},{"metadata": {}, "type": "string", "name": "PaymentMethod", "nullable": true},{"metadata": {}, "type": "double", "name": "MonthlyCharges", "nullable": true},{"metadata": {}, "type": "string", "name": "TotalCharges", "nullable": true},{"metadata": {}, "type": "string", "name": "Churn", "nullable": true}]},
