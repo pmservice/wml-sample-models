@@ -9,7 +9,7 @@
 	
 	"framework": {
     "name": "spss-modeler",
-    "version": "17.0",
+    "version": "18.1",
     "runtimes": [
       {
         "name": "spss",
@@ -27,7 +27,7 @@
     },   
     "framework": {
     "name": "spss-modeler",
-    "version": "17.0",
+    "version": "18.1",
     "runtimes": [
       {
         "name": "spss",
