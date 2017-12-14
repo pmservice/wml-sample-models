@@ -34,8 +34,21 @@
       "name": "IBM",
       "email": ""
     },
-    "labelCol": "sentiment",
-    "trainingDataSchema": {"type": "struct", "fields": [{"metadata": {}, "type": "integer", "name": "id", "nullable": true},{"metadata": {}, "type": "string", "name":"text", "nullable": true},{"metadata": {}, "type": "string", "name": "label", "nullable": true}]},
-    "inputDataSchema": {"type": "struct","fields": [{"metadata": {}, "type": "integer", "name": "id", "nullable": true},{"metadata": {}, "type": "string", "name": "text", "nullable": true}]}
+    "label_column": "sentiment",
+    "training_data_schema": {"type": "struct", 
+                             "fields": [
+                               {"metadata": {}, 
+                                "type": "integer", 
+                                "name": "id", 
+                                "nullable": true},
+                               {"metadata": {}, 
+                                "type": "string", 
+                                "name":"text", 
+                                "nullable": true},
+                               {"metadata": {}, 
+                                "type": "string", 
+                                "name": "label", 
+                                "nullable": true}
+                             ]}    
   }
 }
