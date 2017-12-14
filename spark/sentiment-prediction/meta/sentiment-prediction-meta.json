@@ -2,6 +2,16 @@
   "pipeline_meta": {
     "name":"sentiment-prediction-pipeline",
     "description":"sentiment-prediction-pipeline",
+    "framework": {
+      "name": "MLlib",
+      "version": "2.0",
+      "runtimes": [
+        {
+          "name": "spark",
+          "version": "2.0"
+        }
+      ]
+    },
     "author": {
       "name": "IBM",
       "email": ""
@@ -9,23 +19,23 @@
     "type":"sparkml-pipeline-2.0",
     "runtimeEnvironment": "spark-2.0"
   },
-  "pipeline_version": {
-  },
   "model_meta": {
     "name":"Sentiment Prediction",
     "description":"Predicts comment sentiment about particular topic for marketing company.",
+    "framework": {
+      "name": "MLlib",
+      "version": "2.0",
+      "runtimes": [{
+        "name": "spark",
+        "version": "2.0"
+      }]
+    },
     "author": {
       "name": "IBM",
       "email": ""
     },
-    "type":"sparkml-model-2.0",
-    "runtimeEnvironment": "spark-2.0",
-    "pipelineVersionHref": "$Location$",
     "labelCol": "sentiment",
     "trainingDataSchema": {"type": "struct", "fields": [{"metadata": {}, "type": "integer", "name": "id", "nullable": true},{"metadata": {}, "type": "string", "name":"text", "nullable": true},{"metadata": {}, "type": "string", "name": "label", "nullable": true}]},
     "inputDataSchema": {"type": "struct","fields": [{"metadata": {}, "type": "integer", "name": "id", "nullable": true},{"metadata": {}, "type": "string", "name": "text", "nullable": true}]}
-  },
-  "model_version": {
-    "trainingDataRef": {"connection": {}}
   }
 }
