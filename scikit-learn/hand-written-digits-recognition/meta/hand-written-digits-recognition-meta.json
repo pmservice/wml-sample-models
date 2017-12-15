@@ -21,7 +21,7 @@
     "name":"Handwritten Digits Recognition",
     "description":"This sample model shows how to recognize hand-written digits with IBM Watson Machine Learning.",
     "framework": {
-      "name": "scikit-model",
+      "name": "scikit-learn",
       "version": "0.17",
       "runtimes": [
         {
@@ -33,6 +33,278 @@
     "author": {
       "name": "IBM",
       "email": ""
-    }
+    },
+    "label_column": "l1",
+    "training_data_schema": {
+      "features": {
+        "fields": [
+          {
+            "name": "f0",
+            "type": "float"
+          },
+          {
+            "name": "f1",
+            "type": "float"
+          },
+          {
+            "name": "f2",
+            "type": "float"
+          },
+          {
+            "name": "f3",
+            "type": "float"
+          },
+          {
+            "name": "f4",
+            "type": "float"
+          },
+          {
+            "name": "f5",
+            "type": "float"
+          },
+          {
+            "name": "f6",
+            "type": "float"
+          },
+          {
+            "name": "f7",
+            "type": "float"
+          },
+          {
+            "name": "f8",
+            "type": "float"
+          },
+          {
+            "name": "f9",
+            "type": "float"
+          },
+          {
+            "name": "f10",
+            "type": "float"
+          },
+          {
+            "name": "f11",
+            "type": "float"
+          },
+          {
+            "name": "f12",
+            "type": "float"
+          },
+          {
+            "name": "f13",
+            "type": "float"
+          },
+          {
+            "name": "f14",
+            "type": "float"
+          },
+          {
+            "name": "f15",
+            "type": "float"
+          },
+          {
+            "name": "f16",
+            "type": "float"
+          },
+          {
+            "name": "f17",
+            "type": "float"
+          },
+          {
+            "name": "f18",
+            "type": "float"
+          },
+          {
+            "name": "f19",
+            "type": "float"
+          },
+          {
+            "name": "f20",
+            "type": "float"
+          },
+          {
+            "name": "f21",
+            "type": "float"
+          },
+          {
+            "name": "f22",
+            "type": "float"
+          },
+          {
+            "name": "f23",
+            "type": "float"
+          },
+          {
+            "name": "f24",
+            "type": "float"
+          },
+          {
+            "name": "f25",
+            "type": "float"
+          },
+          {
+            "name": "f26",
+            "type": "float"
+          },
+          {
+            "name": "f27",
+            "type": "float"
+          },
+          {
+            "name": "f28",
+            "type": "float"
+          },
+          {
+            "name": "f29",
+            "type": "float"
+          },
+          {
+            "name": "f30",
+            "type": "float"
+          },
+          {
+            "name": "f31",
+            "type": "float"
+          },
+          {
+            "name": "f32",
+            "type": "float"
+          },
+          {
+            "name": "f33",
+            "type": "float"
+          },
+          {
+            "name": "f34",
+            "type": "float"
+          },
+          {
+            "name": "f35",
+            "type": "float"
+          },
+          {
+            "name": "f36",
+            "type": "float"
+          },
+          {
+            "name": "f37",
+            "type": "float"
+          },
+          {
+            "name": "f38",
+            "type": "float"
+          },
+          {
+            "name": "f39",
+            "type": "float"
+          },
+          {
+            "name": "f40",
+            "type": "float"
+          },
+          {
+            "name": "f41",
+            "type": "float"
+          },
+          {
+            "name": "f42",
+            "type": "float"
+          },
+          {
+            "name": "f43",
+            "type": "float"
+          },
+          {
+            "name": "f44",
+            "type": "float"
+          },
+          {
+            "name": "f45",
+            "type": "float"
+          },
+          {
+            "name": "f46",
+            "type": "float"
+          },
+          {
+            "name": "f47",
+            "type": "float"
+          },
+          {
+            "name": "f48",
+            "type": "float"
+          },
+          {
+            "name": "f49",
+            "type": "float"
+          },
+          {
+            "name": "f50",
+            "type": "float"
+          },
+          {
+            "name": "f51",
+            "type": "float"
+          },
+          {
+            "name": "f52",
+            "type": "float"
+          },
+          {
+            "name": "f53",
+            "type": "float"
+          },
+          {
+            "name": "f54",
+            "type": "float"
+          },
+          {
+            "name": "f55",
+            "type": "float"
+          },
+          {
+            "name": "f56",
+            "type": "float"
+          },
+          {
+            "name": "f57",
+            "type": "float"
+          },
+          {
+            "name": "f58",
+            "type": "float"
+          },
+          {
+            "name": "f59",
+            "type": "float"
+          },
+          {
+            "name": "f60",
+            "type": "float"
+          },
+          {
+            "name": "f61",
+            "type": "float"
+          },
+          {
+            "name": "f62",
+            "type": "float"
+          },
+          {
+            "name": "f63",
+            "type": "float"
+          }
+        ],
+        "type": "ndarray"
+      },
+      "labels": {
+        "fields": [
+          {
+            "name": "l1",
+            "type": "int"
+          }
+        ],
+        "type": "ndarray"
+      }
   }
 }
