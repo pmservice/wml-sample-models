@@ -6,7 +6,7 @@
       "name": "IBM",
       "email": ""
     },   
-    "model_type":"scikit-model-0.17",
+    "model_type":"scikit-learn-0.17",
     "runtime_environment": "None Provided",
     "pipeline_version_href": "$Location$",
     "label_column": "l1",
