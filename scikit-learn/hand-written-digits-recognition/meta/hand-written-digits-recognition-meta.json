@@ -9,7 +9,7 @@
     "model_type":"scikit-model-0.17",
     "runtime_environment": "None Provided",
     "pipeline_version_href": "$Location$",
-    "label_col": "l1",
+    "label_column": "l1",
     "training_data_schema": {
         "features": {
         "fields": [
