@@ -1,6 +1,8 @@
 model_definition:
   name: tf-mnist-showtest1
-  author: DL Developer
+  author:
+    name: DL Developer
+    email: dl@example.com
   description: Simple MNIST model implemented in TF
   framework:
     name: tensorflow
@@ -10,26 +12,20 @@ model_definition:
       --trainLabelsFile ${DATA_DIR}/train-labels-idx1-ubyte.gz --testImagesFile ${DATA_DIR}/t10k-images-idx3-ubyte.gz
       --testLabelsFile ${DATA_DIR}/t10k-labels-idx1-ubyte.gz --learningRate 0.001
       --trainingIters 20000
-    resourceType: small
+    resource: small
 training_data_reference:
-- connection:
-    auth_url: "https://identity.open.softlayer.com/v3"
-    user_name: "admin_a857a68e6ace189462e48b0d8b41ec95feb0a42d"
-    password: "j-7Oiz{pb8EPSOPe"
-    region: "dallas"
-    domain_name: "1040447"
-    project_id: "88f532ddc4ef41fc8ae0ed060eaf965c"
+  connection:
+    endpoint_url: "https://s3-api.us-geo.objectstorage.service.networklayer.com"
+    aws_access_key_id: "722432c254bc4eaa96e05897bf2779e2"
+    aws_secret_access_key: "286965ac10ecd4de8b44306288c7f5a3e3cf81976a03075c"
   source:
-    bucket: test_data
-    type: bluemix_objectstore
+    bucket: training-data
+  type: s3
 training_results_reference:
   connection:
-    auth_url: "https://identity.open.softlayer.com/v3"
-    user_name: "admin_a857a68e6ace189462e48b0d8b41ec95feb0a42d"
-    password: "j-7Oiz{pb8EPSOPe"
-    region: "dallas"
-    domain_name: "1040447"
-    project_id: "88f532ddc4ef41fc8ae0ed060eaf965c"
-  target:
-    bucket: test_results
-    type: bluemix_objectstore
+    endpoint_url: "https://s3-api.us-geo.objectstorage.service.networklayer.com"
+    aws_access_key_id: "722432c254bc4eaa96e05897bf2779e2"
+    aws_secret_access_key: "286965ac10ecd4de8b44306288c7f5a3e3cf81976a03075c"
+  source:
+    bucket: training-results
+  type: s3
