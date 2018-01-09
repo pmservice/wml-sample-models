@@ -4,13 +4,20 @@
     "description":"product-line-prediction-pipeline",
     "framework":{
       "name": "mllib",
-      "version": "2.0"
+      "version": "2.0",
+      "runtimes": [
+        {
+          "name": "spark",
+          "version": "2.0"
+        }
+      ]      
     },
     "author": {
       "name": "IBM",
       "email": ""
     },
-    "type":"sparkml-pipeline-2.0"
+    "type":"sparkml-pipeline-2.0",
+    "runtimeEnvironment": "spark-2.0"
   },
   "pipeline_version": {
   },
@@ -24,8 +31,15 @@
     "framework": {
       "name": "mllib",
       "version": "2.0"
+      "runtimes": [
+        {
+          "name": "spark",
+          "version": "2.0"
+        }
+      ]      
     },
     "type":"sparkml-model-2.0",
+    "runtimeEnvironment": "spark-2.0",
     "pipelineVersionHref": "$Location$",
     "labelCol": "PRODUCT_LINE",
     "trainingDataSchema": {"type": "struct","fields": [{"metadata": {}, "type": "string", "name": "PRODUCT_LINE", "nullable": true},{"metadata": {}, "type": "string", "name": "GENDER", "nullable": true},{"metadata": {}, "type": "integer", "name": "AGE", "nullable": true},{"metadata": {}, "type": "string", "name": "MARITAL_STATUS", "nullable": true},{"metadata": {}, "type": "string", "name": "PROFESSION", "nullable": true}]},
