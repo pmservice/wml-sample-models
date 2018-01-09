@@ -3,7 +3,7 @@
     "name":"product-line-prediction-pipeline",
     "description":"product-line-prediction-pipeline",
     "framework":{
-      "name": "MLlib",
+      "name": "mllib",
       "version": "2.0",
       "runtimes": [
         {
@@ -29,7 +29,7 @@
       "email": ""
     },
     "framework": {
-      "name": "MLlib",
+      "name": "mllib",
       "version": "2.0",
       "runtimes": [
         {
