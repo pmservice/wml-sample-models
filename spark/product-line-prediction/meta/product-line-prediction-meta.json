@@ -4,13 +4,7 @@
     "description":"product-line-prediction-pipeline",
     "framework":{
       "name": "mllib",
-      "version": "2.0",
-      "runtimes": [
-        {
-          "name": "spark",
-          "version": "2.0"
-        }
-      ]
+      "version": "2.0"
     },
     "author": {
       "name": "IBM",
@@ -29,13 +23,7 @@
     },
     "framework": {
       "name": "mllib",
-      "version": "2.0",
-      "runtimes": [
-        {
-          "name": "spark",
-          "version": "2.0"
-        }
-      ]
+      "version": "2.0"
     },
     "type":"sparkml-model-2.0",
     "pipelineVersionHref": "$Location$",
