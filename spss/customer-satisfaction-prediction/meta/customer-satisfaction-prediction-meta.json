@@ -27,11 +27,11 @@
     },   
     "framework": {
      "name": "spss-modeler",
-     "version": "18.1",
+     "version": "17.1",
      "runtimes": [
        {
          "name": "spss-modeler",
-         "version": "18.1"
+         "version": "17.1"
        }
      ]      
    },
