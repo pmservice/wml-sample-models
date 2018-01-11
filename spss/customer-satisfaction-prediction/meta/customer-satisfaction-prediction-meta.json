@@ -26,10 +26,15 @@
       "email": ""
     },   
     "framework": {
-    "name": "spss-modeler",
-    "version": "18.1"
-   
-  },
+     "name": "spss-modeler",
+     "version": "18.1",
+     "runtimes": [
+       {
+         "name": "spss-modeler",
+         "version": "18.1"
+       }
+     ]      
+   },
     "label_column": "Churn"
    }
 }
