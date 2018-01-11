@@ -1,14 +1,22 @@
 {
    "model_meta":{
       "name":"Handwritten Digits Recognition",
-      "model_type":"scikit-learn-0.17",
-      "runtime_environment":"python-3.5",
       "description":"This sample model shows how to recognize hand-written digits with IBM Watson Machine Learning.",
       "author":{
          "name":"IBM",
          "email":"ibm@ibm.com"
       },
-      "label_col":"l1",
+      "framework":{
+         "name":"scikit-learn",
+         "version":"0.17",
+         "runtimes":[
+            {
+               "name":"scikit-learn",
+               "version":"0.17"
+            }
+         ]
+      },
+      "label_column":"l1",
       "training_data_schema":{
          "features":{
             "fields":[
