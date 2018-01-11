@@ -1,4 +1,22 @@
 {
+   "pipeline_meta":{
+      "name":"Handwritten Digits Recognition",
+      "description":"This sample model shows how to recognize hand-written digits with IBM Watson Machine Learning.",
+      "author":{
+         "name":"IBM",
+         "email":"ibm@ibm.com"
+      },
+      "framework":{
+         "name":"scikit-learn",
+         "version":"0.17",
+         "runtimes":[
+            {
+               "name":"scikit-learn",
+               "version":"0.17"
+            }
+         ]
+      }
+   },
    "model_meta":{
       "name":"Handwritten Digits Recognition",
       "description":"This sample model shows how to recognize hand-written digits with IBM Watson Machine Learning.",
