@@ -3,7 +3,7 @@
 	  "name": "Drug model experiment",
   "description": "Defines model to predict drug for patient with heart disease",
   "framework": {
-    "name": "MLlib",
+    "name": "mllib",
     "version": "2.0",
     "runtimes": [
       {
@@ -34,7 +34,7 @@
     },
   "model_meta": {
   "framework": {
-    "name": "MLlib",
+    "name": "mllib",
     "version": "2.0",
     "runtimes": [{
                    "name": "spark",
