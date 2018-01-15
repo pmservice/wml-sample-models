@@ -3,7 +3,7 @@
     "name":"customer-satisfaction-prediction-pipeline",
     "description":"customer-satisfaction-prediction-pipeline",
     "framework": {
-     "name": "MLlib",
+     "name": "mllib",
      "version": "2.0",
      "runtimes": [
        {
@@ -23,7 +23,7 @@
  
   "model_meta": {
   "framework": {
-    "name": "MLlib",
+    "name": "mllib",
     "version": "2.0",
     "runtimes": [{
                    "name": "spark",
