@@ -14,6 +14,7 @@ model_definition:
       --trainingIters 20000
     resource: small
 training_data_reference:
+  name: training_data_reference_name
   connection:
     endpoint_url: "https://s3-api.us-geo.objectstorage.service.networklayer.com"
     aws_access_key_id: "722432c254bc4eaa96e05897bf2779e2"
@@ -22,6 +23,7 @@ training_data_reference:
     bucket: training-data
   type: s3
 training_results_reference:
+  name: training_results_reference_name
   connection:
     endpoint_url: "https://s3-api.us-geo.objectstorage.service.networklayer.com"
     aws_access_key_id: "722432c254bc4eaa96e05897bf2779e2"
