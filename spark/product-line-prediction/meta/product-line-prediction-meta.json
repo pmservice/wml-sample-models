@@ -42,46 +42,31 @@
                "name":"PRODUCT_LINE",
                "type":"string",
                "nullable":true,
-               "metadata":{
-                  "scale":0,
-                  "name":"PRODUCT_LINE"
-               }
+               "metadata":{}
             },
             {
                "name":"GENDER",
                "type":"string",
                "nullable":true,
-               "metadata":{
-                  "scale":0,
-                  "name":"GENDER"
-               }
+               "metadata":{}
             },
             {
                "type":"integer",
                "name":"AGE",
                "nullable":true,
-               "metadata":{
-                  "scale":0,
-                  "name":"AGE"
-               }
+               "metadata":{}
             },
             {
                "name":"MARITAL_STATUS",
                "type":"string",
                "nullable":true,
-               "metadata":{
-                  "scale":0,
-                  "name":"MARITAL_STATUS"
-               }
+               "metadata":{}
             },
             {
                "name":"PROFESSION",
                "type":"string",
                "nullable":true,
-               "metadata":{
-                  "scale":0,
-                  "name":"PROFESSION"
-               }
+               "metadata":{}
             }
          ]
       }
