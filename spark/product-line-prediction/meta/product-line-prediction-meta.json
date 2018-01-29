@@ -30,7 +30,6 @@
       },
    "name":"Product Line Prediction",
    "description":"Predicts clients' interests in terms of sport product lines for chain stores in Europe.",
-   "training_definition_url":"$Location$",
    "author":{
          "name":"IBM",
          "email":""
