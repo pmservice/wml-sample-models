@@ -1,43 +1,43 @@
 {
    "pipeline_meta":{
-      "name":"product-line-prediction-pipeline",
-      "description":"product-line-prediction-pipeline",
-      "framework":{
-         "name":"mllib",
-         "version":"2.0",
-         "runtimes":[
+   "name":"product-line-prediction-pipeline",
+   "description":"product-line-prediction-pipeline",
+   "framework":{
+     "name":"mllib",
+     "version":"2.0",
+     "runtimes":[
             {
                "name":"spark",
                "version":"2.0"
             }
          ]
       },
-      "author":{
-         "name":"IBM",
-         "email":""
+   "author":{
+      "name":"IBM",
+      "email":""
       }
    },
    "model_meta":{
-      "framework":{
-         "name":"mllib",
-         "version":"2.0",
-         "runtimes":[
+   "framework":{
+      "name":"mllib",
+      "version":"2.0",
+      "runtimes":[
             {
                "name":"spark",
                "version":"2.0"
             }
          ]
       },
-      "name":"Product Line Prediction",
-      "description":"Predicts clients' interests in terms of sport product lines for chain stores in Europe.",
-      "training_definition_url":"$Location$",
-      "author":{
+   "name":"Product Line Prediction",
+   "description":"Predicts clients' interests in terms of sport product lines for chain stores in Europe.",
+   "training_definition_url":"$Location$",
+   "author":{
          "name":"IBM",
          "email":""
       },
-      "label_column":"PRODUCT_LINE",
-      "training_data_schema":{
-         "type":"struct",
+   "label_column":"PRODUCT_LINE",
+   "training_data_schema":{
+      "type":"struct",
          "fields":[
             {
                "name":"PRODUCT_LINE",
