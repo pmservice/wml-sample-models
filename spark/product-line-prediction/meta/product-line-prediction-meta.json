@@ -85,16 +85,6 @@
                }
             }
          ]
-      },
-      "evaluation":{
-         "method":"multiclass",
-         "metrics":[
-            {
-               "name":"accuracy",
-               "threshold":0.8,
-               "value":0.870968
-            }
-         ]
       }
    }
 }
