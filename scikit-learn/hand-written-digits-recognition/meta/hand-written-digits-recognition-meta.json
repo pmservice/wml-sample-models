@@ -1,16 +1,21 @@
 {
    "pipeline_meta":{
-      "name":"hand-written-digits-recognition-pipeline",
-      "description":"hand-written-digits-recognition-pipeline",
-      "author":{
-         "name":"IBM",
-         "email":""
+   "name":"hand-written-digits-recognition-pipeline",
+   "description":"hand-written-digits-recognition-pipeline",
+   "framework":{
+     "name":"scikit-learn",
+     "version":"0.17",
+     "runtimes":[
+            {
+               "name":"python",
+               "version":"3.5"
+            }
+         ]
       },
-      "type":"scikit-model-0.17",
-      "runtimeEnvironment":"python-3.5"
-   },
-   "pipeline_version":{
-
+   "author":{
+      "name":"IBM",
+      "email":""
+      }
    },
    "model_meta":{
       "name":"Handwritten Digits Recognition",
@@ -24,8 +29,8 @@
          "version":"0.17",
          "runtimes":[
             {
-               "name":"scikit-learn",
-               "version":"0.17"
+               "name":"python",
+               "version":"3.5"
             }
          ]
       },
