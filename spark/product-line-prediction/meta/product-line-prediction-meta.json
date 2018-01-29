@@ -30,6 +30,7 @@
       },
    "name":"Product Line Prediction",
    "description":"Predicts clients' interests in terms of sport product lines for chain stores in Europe.",
+   "training_definition_url":"$Location$",
    "author":{
          "name":"IBM",
          "email":""
@@ -42,31 +43,46 @@
                "name":"PRODUCT_LINE",
                "type":"string",
                "nullable":true,
-               "metadata":{}
+               "metadata":{
+                  "scale":0,
+                  "name":"PRODUCT_LINE"
+               }
             },
             {
                "name":"GENDER",
                "type":"string",
                "nullable":true,
-               "metadata":{}
+               "metadata":{
+                  "scale":0,
+                  "name":"GENDER"
+               }
             },
             {
                "type":"integer",
                "name":"AGE",
                "nullable":true,
-               "metadata":{}
+               "metadata":{
+                  "scale":0,
+                  "name":"AGE"
+               }
             },
             {
                "name":"MARITAL_STATUS",
                "type":"string",
                "nullable":true,
-               "metadata":{}
+               "metadata":{
+                  "scale":0,
+                  "name":"MARITAL_STATUS"
+               }
             },
             {
                "name":"PROFESSION",
                "type":"string",
                "nullable":true,
-               "metadata":{}
+               "metadata":{
+                  "scale":0,
+                  "name":"PROFESSION"
+               }
             }
          ]
       }
