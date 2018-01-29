@@ -1,111 +1,100 @@
 {
-  "pipeline_meta": {
-	  "name": "product-line-prediction-pipeline",
-  "description": "product-line-prediction-pipeline",
-  "framework": {
-    "name": "mllib",
-    "version": "2.0",
-    "runtimes": [
-      {
-        "name": "spark",
-        "version": "2.0"
-      }
-    ]
-  },
-  "training_data_reference": [
-    {
-      "name": "Drug training data",
-      "connection": {
-		"db": "BLUDB",
-		"host": "dashdb-entry-yp-dal09-09.services.dal.bluemix.net",
-		"username": "dash11348",
-		"password": "G_2jp_K2avMY"	      
+   "pipeline_meta":{
+      "name":"product-line-prediction-pipeline",
+      "description":"product-line-prediction-pipeline",
+      "framework":{
+         "name":"mllib",
+         "version":"2.0",
+         "runtimes":[
+            {
+               "name":"spark",
+               "version":"2.0"
+            }
+         ]
       },
-      "source": {
-		"tablename": "DRUG_TRAIN_DATA_UPDATED",
-		"type": "dashdb"	      
+      "author":{
+         "name":"IBM",
+         "email":""
       }
-    }
-  ],
-  "author": {
-    "name": "IBM",
-    "email": ""
-  }  
-    },
-  "model_meta": {
-  "framework": {
-    "name": "mllib",
-    "version": "2.0",
-    "runtimes": [{
-                   "name": "spark",
-                   "version": "2.0"
-                 }]
-				},
-  "name": "Product Line Prediction",
-  "description": "Predicts clients' interests in terms of sport product lines for chain stores in Europe.",
-  "training_definition_url": "$Location$",
-  "author": {
-              "name": "IBM",
-              "email": ""
+   },
+   "model_meta":{
+      "framework":{
+         "name":"mllib",
+         "version":"2.0",
+         "runtimes":[
+            {
+               "name":"spark",
+               "version":"2.0"
+            }
+         ]
+      },
+      "name":"Product Line Prediction",
+      "description":"Predicts clients' interests in terms of sport product lines for chain stores in Europe.",
+      "training_definition_url":"$Location$",
+      "author":{
+         "name":"IBM",
+         "email":""
+      },
+      "label_column":"PRODUCT_LINE",
+      "training_data_schema":{
+         "type":"struct",
+         "fields":[
+            {
+               "name":"PRODUCT_LINE",
+               "type":"string",
+               "nullable":true,
+               "metadata":{
+                  "scale":0,
+                  "name":"PRODUCT_LINE"
+               }
             },
-  "label_column": "PRODUCT_LINE",
-  "training_data_reference":[{
-      "name": "Drug training data",
-      "connection": {
-		"db": "BLUDB",
-		"host": "dashdb-entry-yp-dal09-09.services.dal.bluemix.net",
-		"username": "dash11348",
-		"password": "G_2jp_K2avMY"
+            {
+               "name":"GENDER",
+               "type":"string",
+               "nullable":true,
+               "metadata":{
+                  "scale":0,
+                  "name":"GENDER"
+               }
+            },
+            {
+               "type":"integer",
+               "name":"AGE",
+               "nullable":true,
+               "metadata":{
+                  "scale":0,
+                  "name":"AGE"
+               }
+            },
+            {
+               "name":"MARITAL_STATUS",
+               "type":"string",
+               "nullable":true,
+               "metadata":{
+                  "scale":0,
+                  "name":"MARITAL_STATUS"
+               }
+            },
+            {
+               "name":"PROFESSION",
+               "type":"string",
+               "nullable":true,
+               "metadata":{
+                  "scale":0,
+                  "name":"PROFESSION"
+               }
+            }
+         ]
       },
-      "source": {
-		"tablename": "DRUG_TRAIN_DATA_UPDATED",
-		"type": "dashdb"
+      "evaluation":{
+         "method":"multiclass",
+         "metrics":[
+            {
+               "name":"accuracy",
+               "threshold":0.8,
+               "value":0.870968
+            }
+         ]
       }
-    }],
-  "training_data_schema": {
-    "type": "struct",
-    "fields": [
-      {
-       "name":"PRODUCT_LINE",
-       "type":"string",
-       "nullable":true,
-       "metadata":{"scale":0,"name":"PRODUCT_LINE"}
-      },
-      {
-       "name":"GENDER",
-       "type":"string",
-       "nullable":true,
-       "metadata":{"scale":0,"name":"GENDER"}
-      },
-	  {
-	   "name":"AGE",
-	   "type":"int",
-	   "nullable":true,
-	   "metadata":{"scale":0,"name":"AGE"}	  
-	  },
-	  {
-  	   "name":"MARITAL_STATUS",
-	   "type":"string",
-	   "nullable":true,
-	   "metadata":{"scale":0,"name":"MARITAL_STATUS"}	   
-	  },
-	  {
-       "name":"PROFESSION",
-       "type":"string",
-       "nullable":true,
-       "metadata":{"scale":0,"name":"PROFESSION"}
-      }
-    ]
-  },
-  "evaluation": {
-    "method": "multiclass",
-    "metrics": [
-      {
-        "name": "accuracy",
-        "threshold": 0.8,
-        "value": 0.870968
-      }
-    ]
-  }
- }
+   }
 }
