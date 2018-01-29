@@ -79,7 +79,7 @@
       },
 	  {
 	   "name":"AGE",
-	   "type":"integer",
+	   "type":"int",
 	   "nullable":true,
 	   "metadata":{"scale":0,"name":"AGE"}	  
 	  },
