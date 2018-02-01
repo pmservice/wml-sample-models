@@ -6,13 +6,14 @@ model_definition:
   description: Simple MNIST model implemented in TF
   framework:
     name: tensorflow
-    version: 1.2-py3
+    version: 1.2
   execution:
     command: python3 convolutional_network.py --trainImagesFile ${DATA_DIR}/train-images-idx3-ubyte.gz
       --trainLabelsFile ${DATA_DIR}/train-labels-idx1-ubyte.gz --testImagesFile ${DATA_DIR}/t10k-images-idx3-ubyte.gz
       --testLabelsFile ${DATA_DIR}/t10k-labels-idx1-ubyte.gz --learningRate 0.001
       --trainingIters 20000
-    resource: small
+    compute_configuration:
+      name: small
 training_data_reference:
   name: training_data_reference_name
   connection:
