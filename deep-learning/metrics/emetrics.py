@@ -6,6 +6,7 @@ import os
 class EMetrics(object):
 
     TEST_GROUP = "test"
+    TRAIN_GROUP = "train"
 
     def __init__(self,subId,f):
         if "TRAINING_ID" in os.environ:
@@ -36,7 +37,7 @@ class EMetrics(object):
             folder = os.path.join(folder, subId)
 
         if not os.path.exists(folder):
-            os.mkdirs(folder)
+            os.makedirs(folder)
 
         f = open(os.path.join(folder, "evaluation-metrics.txt"), "a")
         return EMetrics(subId,f)
