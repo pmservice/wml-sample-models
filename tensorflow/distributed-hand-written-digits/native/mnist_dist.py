@@ -106,22 +106,22 @@ def main(_):
       summary_op = tf.summary.merge_all()
       init_op = tf.global_variables_initializer()
 
-    classification_inputs = tf.saved_model.utils.build_tensor_info(x)
-    classification_outputs_classes = tf.saved_model.utils.build_tensor_info(y_)
-    classification_signature = (
-        tf.saved_model.signature_def_utils.build_signature_def(
-            inputs={
-                tf.saved_model.signature_constants.CLASSIFY_INPUTS:
-                    classification_inputs
-            },
-            outputs={
-                tf.saved_model.signature_constants.CLASSIFY_OUTPUT_CLASSES:
-                    classification_outputs_classes
-            },
-            method_name=tf.saved_model.signature_constants.CLASSIFY_METHOD_NAME))
+    #classification_inputs = tf.saved_model.utils.build_tensor_info(x)
+    #classification_outputs_classes = tf.saved_model.utils.build_tensor_info(y_)
+    #classification_signature = (
+    #    tf.saved_model.signature_def_utils.build_signature_def(
+    #        inputs={
+    #            tf.saved_model.signature_constants.CLASSIFY_INPUTS:
+    #                classification_inputs
+    #        },
+    #        outputs={
+    #            tf.saved_model.signature_constants.CLASSIFY_OUTPUT_CLASSES:
+    #                classification_outputs_classes
+    #        },
+    #        method_name=tf.saved_model.signature_constants.CLASSIFY_METHOD_NAME))
     # print("classification_signature content:")
-    print(classification_signature)
-    builder = tf.saved_model.builder.SavedModelBuilder(model_path)
+    #print(classification_signature)
+    #builder = tf.saved_model.builder.SavedModelBuilder(model_path)
 
     # Create a "supervisor", which oversees the training process.
     sv = tf.train.Supervisor(is_chief=(FLAGS.task_index == 0),
@@ -162,8 +162,8 @@ def main(_):
       print("Model saved in file: %s" % save_checkpoint_path)
 
     # Saving model after training
-    model_save_path = str(builder.save())
-    print("Model saved in file: %s" % model_save_path)
+    # model_save_path = str(builder.save())
+    # print("Model saved in file: %s" % model_save_path)
     # Ask for all the services to stop.
     sv.stop()
 
