@@ -6,28 +6,16 @@ import sys
 
 #wrapper loop which will run the actual training command
 def run_training(cmd):
-    process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    print ("process should have started executing now... {}".format(" ".join(cmd)))
-    while process.poll() is None:
-      process.stdout.flush()
-      if process.stderr:
-        process.stderr.flush()
-      sys.stderr.flush()
-      sys.stdout.flush()
-      for line in iter(process.stdout.readline, ''):
-        print (line.strip()) 
-        process.stdout.flush()
-      
-    sys.stderr.flush()
-    sys.stdout.flush()
-    process.stdout.flush()
-    if process.stderr:
-        process.stderr.flush()
-    for line in iter(process.stdout.readline, ''):
-        print (line.strip())
-
-    if process.returncode != 0:
-        raise ValueError("cmd: {0} exited with code {1}".format(" ".join(cmd), process.returncode))
+   process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+   print ("process should have started executing now... {}".format(" ".join(cmd)))
+   while process.poll() is None:
+      output = process.stdout.readline()
+      if output:
+         print(output.strip().decode("utf-8"))
+         sys.stdout.flush()
+   rc = process.returncode
+   if rc != 0:
+      raise ValueError("cmd: {0} exited with code {1}".format(" ".join(cmd), rc)) 
             
 
 if __name__ =="__main__":
