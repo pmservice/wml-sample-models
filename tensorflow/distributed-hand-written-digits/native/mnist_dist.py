@@ -33,6 +33,7 @@ flags.DEFINE_string("worker_hosts", "", "Comma-separated list of hostname:port p
 flags.DEFINE_string("job_name", "", "One of 'ps', 'worker'")
 flags.DEFINE_integer("task_index", 0, "Index of task within the job")
 flags.DEFINE_integer("batch_size", 100, "Index of task within the job")
+# TODO remove as it seems unecessary
 flags.DEFINE_integer('model_version', 1, 'version number of the model.')
 FLAGS = flags.FLAGS
 
@@ -106,7 +107,7 @@ def train(server, cluster):
                 export_path_base = str(FLAGS.model_dir)
                 export_path = os.path.join(
                     tf.compat.as_bytes(export_path_base),
-                    tf.compat.as_bytes(str(FLAGS.model_version)))
+                    tf.compat.as_bytes('model'))
                 print('Exporting trained model to', export_path)
                 builder = tf.saved_model.builder.SavedModelBuilder(export_path)
 
