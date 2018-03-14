@@ -38,7 +38,7 @@ tf.app.flags.DEFINE_integer("batch_size", 100, "Training batch size")
 
 #
 FLAGS = tf.app.flags.FLAGS
-data_dir = os.getenv["DATA_DIR"]
+data_dir = os.getenv("DATA_DIR")
 result_dir = os.getenv("RESULT_DIR")
 model_path = result_dir + "/model"
 
