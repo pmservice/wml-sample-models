@@ -17,123 +17,240 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import os, sys
+import argparse
+import sys
+import tensorflow as tf
 import numpy as np
 import tempfile
 import ddl
-import tensorflow as tf
+import os
 from tensorflow.examples.tutorials.mnist import input_data
 
+checkpoint_path = os.getenv("RESULT_DIR")
+training_data_dir = os.getenv("DATA_DIR")
+learner_id = os.getenv("LEARNER_ID")
 
-# Flags for defining the tf.train.ClusterSpec
-tf.app.flags.DEFINE_string("ps_hosts", "", "Comma-separated list of hostname:port pairs")
-tf.app.flags.DEFINE_string("worker_hosts", "", "Comma-separated list of hostname:port pairs")
+model_path = os.environ["RESULT_DIR"]+"/model"
 
-# Flags for defining the tf.train.Server
-tf.app.flags.DEFINE_string("job_name", "", "One of 'ps', 'worker'")
-tf.app.flags.DEFINE_integer("task_index", 0, "Index of task within the job")
-tf.app.flags.DEFINE_integer("hidden_units", 100, "Number of units in the hidden layer of the NN")
-tf.app.flags.DEFINE_string("data_dir", "/tmp/mnist-data", "Directory for storing mnist data")
-tf.app.flags.DEFINE_integer("batch_size", 100, "Training batch size")
-
+#print("checkpint path is {} and training_data_dir is {} and learner_id {}".format( checkpoint_path, training_data_dir, learner_id))
+#if checkpoint_path == None:
+#    exit(1)
 #
-FLAGS = tf.app.flags.FLAGS
-data_dir = os.getenv("DATA_DIR")
-result_dir = os.getenv("RESULT_DIR")
-model_path = result_dir + "/model"
+if training_data_dir == None:
+    exit(1)
 
-#
+#if learner_id == None:
+#    exit(1)
+
+
+FLAGS = None
+
+def deepnn(x):
+    """deepnn builds the graph for a deep net for classifying digits.
+    Args:
+      x: an input tensor with the dimensions (N_examples, 784), where 784 is the
+      number of pixels in a standard MNIST image.
+    Returns:
+      A tuple (y, keep_prob). y is a tensor of shape (N_examples, 10), with values
+      equal to the logits of classifying the digit into one of 10 classes (the
+      digits 0-9). keep_prob is a scalar placeholder for the probability of
+      dropout.
+    """
+    # Reshape to use within a convolutional neural net.
+    # Last dimension is for "features" - there is only one here, since images are
+    # grayscale -- it would be 3 for an RGB image, 4 for RGBA, etc.
+    with tf.name_scope('reshape'):
+        x_image = tf.reshape(x, [-1, 28, 28, 1])
+
+    # First convolutional layer - maps one grayscale image to 32 feature maps.
+    with tf.name_scope('conv1'):
+        W_conv1 = weight_variable([5, 5, 1, 32])
+        b_conv1 = bias_variable([32])
+        h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)
+
+    # Pooling layer - downsamples by 2X.
+    with tf.name_scope('pool1'):
+        h_pool1 = max_pool_2x2(h_conv1)
+
+    # Second convolutional layer -- maps 32 feature maps to 64.
+    with tf.name_scope('conv2'):
+        W_conv2 = weight_variable([5, 5, 32, 64])
+        b_conv2 = bias_variable([64])
+        h_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2) + b_conv2)
+
+    # Second pooling layer.
+    with tf.name_scope('pool2'):
+        h_pool2 = max_pool_2x2(h_conv2)
+
+    # Fully connected layer 1 -- after 2 round of downsampling, our 28x28 image
+    # is down to 7x7x64 feature maps -- maps this to 1024 features.
+    with tf.name_scope('fc1'):
+        W_fc1 = weight_variable([7 * 7 * 64, 1024])
+        b_fc1 = bias_variable([1024])
+        h_pool2_flat = tf.reshape(h_pool2, [-1, 7 * 7 * 64])
+        h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
+
+    # Dropout - controls the complexity of the model, prevents co-adaptation of
+    # features.
+    with tf.name_scope('dropout'):
+        keep_prob = tf.placeholder(tf.float32)
+        h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)
+
+    # Map the 1024 features to 10 classes, one for each digit
+    with tf.name_scope('fc2'):
+        W_fc2 = weight_variable([1024, 10])
+        b_fc2 = bias_variable([10])
+        y_conv = tf.matmul(h_fc1_drop, W_fc2) + b_fc2
+    return y_conv, keep_prob
+
+
+def conv2d(x, W):
+    """conv2d returns a 2d convolution layer with full stride."""
+    return tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding='SAME')
+
+
+def max_pool_2x2(x):
+    """max_pool_2x2 downsamples a feature map by 2X."""
+    return tf.nn.max_pool(x, ksize=[1, 2, 2, 1],
+                          strides=[1, 2, 2, 1], padding='SAME')
+
+
+def weight_variable(shape):
+    """weight_variable generates a weight variable of a given shape."""
+    initial = tf.truncated_normal(shape, stddev=0.1)
+    return tf.Variable(initial)
+
+
+def bias_variable(shape):
+    """bias_variable generates a bias variable of a given shape."""
+    initial = tf.constant(0.1, shape=shape)
+    return tf.Variable(initial)
+
+
 def main(_):
-   # create a spec from the parameter server and worker hosts
-   ps_hosts = FLAGS.ps_hosts.split(",")
-   worker_hosts = FLAGS.worker_hosts.split(",")
-   cluster = tf.train.ClusterSpec({"ps": ps_hosts,"worker": worker_hosts})
-   # create a server for the local task
-   server = tf.train.Server(cluster, job_name=FLAGS.job_name, task_index=FLAGS.task_index)
+    ############################################################################
+    # Import MNIST data
+    ############################################################################
+    mnist = input_data.read_data_sets(training_data_dir)
 
-   # parameter server
-   if FLAGS.job_name == "ps":
-     print("parameter server on " + server.target.decode("utf-8"))
-     sys.stdout.flush()
-     server.join()  # this never finishes
-     return
+    # Parameters
+    learning_rate = 0.001
+    training_iters = 2000
+    batch_size = 100
+    display_step = 1
 
-   # otherwise this is a worker
-   if FLAGS.job_name != "worker":
-     print("invalid job_name="+FLAGS.job_name)
-     return
-   print("worker %d started on %s" % (FLAGS.task_index,server.target.decode("utf-8")))
+    # Network Parameters
+    n_input = 784 # MNIST data input (img shape: 28*28)
+    n_classes = 10 # MNIST total classes (0-9 digits)
+    dropout = 0.75 # Dropout, probability to keep units
 
-   # load mnist data files
-   mnist = input_data.read_data_sets(data_dir, one_hot=True)
-   # only one checkpoint dir needed per task
-   checkpoint_dir = "%s/train_logs%d" % (result_dir,FLAGS.task_index)
-   print(checkpoint_dir)
-   sys.stdout.flush()
+    # tf Graph input
+    x = tf.placeholder(tf.float32, [None, n_input])
+    y = tf.placeholder(tf.int64, [None])
 
-   # build the model
-   with tf.device(tf.train.replica_device_setter(worker_device="/job:worker/task:%d" % FLAGS.task_index, cluster=cluster)):
-      W = tf.Variable(tf.zeros([784,10]), name="weights")
-      b = tf.Variable(tf.zeros([10]), name="bias")
-      x = tf.placeholder(tf.float32, [None,784], name="x_input")
-      y = tf.placeholder(tf.float32, [None,10], name="y_output")
-      model = tf.add(tf.matmul(x, W), b, name="model") # y = Wx + b
-      # these are used for training
-      cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(labels=y, logits=model))
-      prediction = tf.equal(tf.argmax(model,1), tf.argmax(y,1))
-      accuracy = tf.reduce_mean(tf.cast(prediction, tf.float32), name="accuracy")
-      global_step = tf.train.get_or_create_global_step()
-      train_op = tf.train.GradientDescentOptimizer(0.5).minimize(cost, global_step=global_step)
+    # Construct model
+    pred, keep_prob = deepnn(x)
 
-   # start the training session
-   hooks = [tf.train.StopAtStepHook(last_step=501)]
-   with tf.train.MonitoredTrainingSession(master=server.target, is_chief=(FLAGS.task_index==0), checkpoint_dir=checkpoint_dir, hooks=hooks) as sess:
-      # loop through training data
-      while not sess.should_stop():
-         batch_xs, batch_ys = mnist.train.next_batch(1000)  # session divides up the training data
-         _, step = sess.run([train_op, global_step], feed_dict={x: batch_xs, y: batch_ys})
-         if (step % 10 == 0) and (not sess.should_stop()):
-            loss, acc = sess.run([cost,accuracy], feed_dict={x: mnist.validation.images, y: mnist.validation.labels})
-            print("{:4d}".format(step) + ": " + "{:.6f}".format(loss) + ", accuracy=" + "{:.5f}".format(acc))
-            sys.stdout.flush()
+    # Define loss and optimizer
+    with tf.name_scope('loss'):
+        cost = tf.reduce_mean(
+            tf.losses.sparse_softmax_cross_entropy(labels=y, logits=pred))
 
-   # we are done (if we are not chief)
-   if FLAGS.task_index != 0:
-      return
-   # the remainder code tests the model and saves it
+    with tf.name_scope('adam_optimizer'):
+        optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)
+        objective = optimizer.minimize(cost)
 
-   # get the last checkpoint file which has the completed parameters
-   checkpoint_file = tf.train.latest_checkpoint(checkpoint_dir)
-   meta_file = checkpoint_file + ".meta"
-   print(meta_file)
-   sys.stdout.flush()
+    predictor = tf.argmax(pred, 1, name="predictor") 
+    # Evaluate model
+    with tf.name_scope('accuracy'):
+        correct_prediction = tf.equal(predictor, y)
+        correct_prediction = tf.cast(correct_prediction, tf.float32)
+        accuracy = tf.reduce_mean(correct_prediction)
 
-   # output the model for inference/serving
-   with tf.Graph().as_default(): # use a new graph -- or tf.reset_default_graph() may work as well
-      config = tf.ConfigProto(allow_soft_placement=True,log_device_placement=False)
-      with tf.Session(config=config) as sess:
-         # restoring the model from the last checkpoint file
-         saver = tf.train.import_meta_graph(meta_file, clear_devices=True)
-         saver.restore(sess, checkpoint_file)
-         # compute and print the accuracy based on the test data
-         acc = sess.run("accuracy:0", feed_dict={"x_input:0": mnist.test.images, "y_output:0": mnist.test.labels})
-         print("Test accuracy = "+"{:5f}".format(acc))
-         # retrieve some of the graph elements we need to reference in the model builder signature
-         x = tf.get_default_graph().get_tensor_by_name("x_input:0")
-         model = tf.get_default_graph().get_tensor_by_name("model:0")
-         predictor = tf.argmax(model, 1, name="predictor")
-         # create the model builder
-         inputs_classes = tf.saved_model.utils.build_tensor_info(x)           # input an image
-         outputs_classes = tf.saved_model.utils.build_tensor_info(predictor)  # output its class (0-9)
-         signature = (tf.saved_model.signature_def_utils.build_signature_def(inputs={tf.saved_model.signature_constants.CLASSIFY_INPUTS:inputs_classes},outputs={tf.saved_model.signature_constants.CLASSIFY_OUTPUT_CLASSES:outputs_classes},method_name=tf.saved_model.signature_constants.CLASSIFY_METHOD_NAME))
-         builder = tf.saved_model.builder.SavedModelBuilder(model_path)       # path to store model
-         legacy_init_op = tf.group(tf.tables_initializer(), name='legacy_init_op')
-         # add the graph and save the model
-         builder.add_meta_graph_and_variables(sess,[tf.saved_model.tag_constants.SERVING],signature_def_map={'predict_images': signature},legacy_init_op=legacy_init_op)
-         save_path = builder.save()
-         print("Model saved in file: %s" % save_path.decode("utf-8"))
+    graph_location = tempfile.mkdtemp()
+    print('Saving graph to: %s' % graph_location)
+    train_writer = tf.summary.FileWriter(graph_location)
+    train_writer.add_graph(tf.get_default_graph())
 
-#
-if __name__ == "__main__":
-   tf.app.run()
+    # Launch the graph
+    with tf.Session(config=tf.ConfigProto()) as sess:
+        sess.run(tf.global_variables_initializer())
+        step = 1
+        # Keep training until reach max iterations
+        while step * batch_size < training_iters:
 
+            ###################################################
+            ### USE ddl.rank() and ddl.size() to load data  ###
+            ###################################################
+            batch_x, batch_y = mnist.train.next_batch(batch_size*ddl.size())
+
+            #select one of partitions
+            batch_x = np.split(batch_x,ddl.size())[ddl.rank()]
+            batch_y = np.split(batch_y,ddl.size())[ddl.rank()]
+
+            # Run optimization op (backprop)
+            sess.run(objective, feed_dict={x: batch_x, y: batch_y,
+                                           keep_prob: dropout})
+            if step % display_step == 0:
+                # Calculate batch loss and accuracy
+                loss, acc = sess.run([cost, accuracy], feed_dict={x: batch_x,
+                                                                  y: batch_y,
+                                                                  keep_prob: 1.})
+                print("DDL " + str(ddl.rank()) + "] Iter " + str(step * batch_size) +
+                  ", Minibatch Loss= " + "{:.6f}".format(loss) +
+                  ", Training Accuracy= " + "{:.5f}".format(acc))
+            step += 1
+
+
+        print("DDL "+str(ddl.rank())+"] Optimization Finished!")
+
+        classification_inputs = tf.saved_model.utils.build_tensor_info(x)
+        classification_outputs_classes = tf.saved_model.utils.build_tensor_info(predictor)
+ 
+        classification_signature = (
+            tf.saved_model.signature_def_utils.build_signature_def(
+               inputs={
+                    tf.saved_model.signature_constants.CLASSIFY_INPUTS:
+                        classification_inputs
+                },
+                outputs={
+                    tf.saved_model.signature_constants.CLASSIFY_OUTPUT_CLASSES:
+                       classification_outputs_classes
+               },
+               method_name=tf.saved_model.signature_constants.CLASSIFY_METHOD_NAME))
+ 
+        print("classification_signature content:")
+        print(classification_signature)
+
+
+
+        # Calculate accuracy for 256 mnist test images
+        print("DDL "+str(ddl.rank())+"] Testing Accuracy:", \
+            sess.run(accuracy, feed_dict={x: mnist.test.images[:256],
+                                          y: mnist.test.labels[:256],
+                                          keep_prob: 1.}))
+        if ddl.rank() == 0 :
+            #model_path = "/tmp/mnist_chk"
+            builder = tf.saved_model.builder.SavedModelBuilder(model_path)
+            legacy_init_op = tf.group(tf.tables_initializer(), name='legacy_init_op')
+            builder.add_meta_graph_and_variables(
+                sess, [tf.saved_model.tag_constants.SERVING],
+                signature_def_map={
+                    'predict_images': classification_signature,
+                },
+                legacy_init_op=legacy_init_op)
+      
+            save_path = str(builder.save())
+      
+            # save_path = saver.save(sess, model_path)
+            print("Model saved in file: %s" % save_path)
+
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--data_dir', type=str,
+                        default='/tmp/tensorflow/mnist/input_data',
+                        help='Directory for storing input data')
+    FLAGS, unparsed = parser.parse_known_args()
+    tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)
