@@ -1,31 +1,90 @@
 {
-  "pipeline_meta": {
-    "name":"product-line-prediction-pipeline",
-    "description":"product-line-prediction-pipeline",
-    "author": {
-      "name": "IBM",
-      "email": ""
-    },
-    "type":"sparkml-pipeline-2.0",
-    "runtimeEnvironment": "spark-2.0"
-  },
-  "pipeline_version": {
-  },
-  "model_meta": {
-    "name":"Product Line Prediction",
-    "description":"Predicts clients' interests in terms of sport product lines for chain stores in Europe.",
-    "author": {
-      "name": "IBM",
-      "email": ""
-    },   
-    "type":"sparkml-model-2.0",
-    "runtimeEnvironment": "spark-2.0",
-    "pipelineVersionHref": "$Location$",
-    "labelCol": "PRODUCT_LINE",
-    "trainingDataSchema": {"type": "struct","fields": [{"metadata": {}, "type": "string", "name": "PRODUCT_LINE", "nullable": true},{"metadata": {}, "type": "string", "name": "GENDER", "nullable": true},{"metadata": {}, "type": "integer", "name": "AGE", "nullable": true},{"metadata": {}, "type": "string", "name": "MARITAL_STATUS", "nullable": true},{"metadata": {}, "type": "string", "name": "PROFESSION", "nullable": true}]},
-    "inputDataSchema": {"type": "struct","fields": [{"metadata": {}, "type": "string", "name": "GENDER", "nullable": true},{"metadata": {}, "type": "integer", "name": "AGE", "nullable": true},{"metadata": {}, "type": "string", "name": "MARITAL_STATUS", "nullable": true},{"metadata": {}, "type": "string", "name": "PROFESSION", "nullable": true}]}
-  },
-  "model_version": {
-    "trainingDataRef": {"connection": {}}
-  }
+   "pipeline_meta":{
+   "name":"product-line-prediction-pipeline",
+   "description":"product-line-prediction-pipeline",
+   "framework":{
+     "name":"mllib",
+     "version":"2.0",
+     "runtimes":[
+            {
+               "name":"spark",
+               "version":"2.0"
+            }
+         ]
+      },
+   "author":{
+      "name":"IBM",
+      "email":""
+      }
+   },
+   "model_meta":{
+   "framework":{
+      "name":"mllib",
+      "version":"2.0",
+      "runtimes":[
+            {
+               "name":"spark",
+               "version":"2.0"
+            }
+         ]
+      },
+   "name":"Product Line Prediction",
+   "description":"Predicts clients' interests in terms of sport product lines for chain stores in Europe.",
+   "training_definition_url":"$Location$",
+   "author":{
+         "name":"IBM",
+         "email":""
+      },
+   "label_column":"PRODUCT_LINE",
+   "training_data_schema":{
+      "type":"struct",
+         "fields":[
+            {
+               "name":"PRODUCT_LINE",
+               "type":"string",
+               "nullable":true,
+               "metadata":{
+                  "scale":0,
+                  "name":"PRODUCT_LINE"
+               }
+            },
+            {
+               "name":"GENDER",
+               "type":"string",
+               "nullable":true,
+               "metadata":{
+                  "scale":0,
+                  "name":"GENDER"
+               }
+            },
+            {
+               "type":"integer",
+               "name":"AGE",
+               "nullable":true,
+               "metadata":{
+                  "scale":0,
+                  "name":"AGE"
+               }
+            },
+            {
+               "name":"MARITAL_STATUS",
+               "type":"string",
+               "nullable":true,
+               "metadata":{
+                  "scale":0,
+                  "name":"MARITAL_STATUS"
+               }
+            },
+            {
+               "name":"PROFESSION",
+               "type":"string",
+               "nullable":true,
+               "metadata":{
+                  "scale":0,
+                  "name":"PROFESSION"
+               }
+            }
+         ]
+      }
+   }
 }

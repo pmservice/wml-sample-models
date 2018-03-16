@@ -3,7 +3,7 @@
 	  "name": "Drug model experiment",
   "description": "Defines model to predict drug for patient with heart disease",
   "framework": {
-    "name": "MLlib",
+    "name": "mllib",
     "version": "2.0",
     "runtimes": [
       {
@@ -34,7 +34,7 @@
     },
   "model_meta": {
   "framework": {
-    "name": "MLlib",
+    "name": "mllib",
     "version": "2.0",
     "runtimes": [{
                    "name": "spark",
@@ -43,7 +43,7 @@
 				},
   "name": "Best Heart Drug Selection",
   "description": "Predicts the best drug for a patient with heart disease.",
-  "experiment_url": "$Location$",
+  "training_definition_url": "$Location$",
   "author": {
               "name": "IBM",
               "email": ""
