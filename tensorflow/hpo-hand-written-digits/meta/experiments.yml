@@ -44,7 +44,7 @@ training_references:
 training_results_reference:
   name: training-results-reference_name
   connection: 
-    endpoint_url: "https://s3-api.us-geo.objectstorage.service.networklayer.com"
+    endpoint_url: "https://s3-api.us-geo.objectstorage.softlayer.net"
     access_key_id: "722432c254bc4eaa96e05897bf2779e2"
     secret_access_key: "286965ac10ecd4de8b44306288c7f5a3e3cf81976a03075c"
   target:

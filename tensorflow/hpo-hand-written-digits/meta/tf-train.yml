@@ -2,7 +2,7 @@ name: tf-mnist-hyperparameter-optimization
 author: 
   name: DL Developer
   email: dl@example.com
-description: Simple MNIST model implemented in TF
+description: Simple MNIST model implemented in TF using Hyperparameter Optimization
 framework:
   name: tensorflow
   version: '1.5'
@@ -15,9 +15,9 @@ execution:
 training_data_reference:
 - name: training_data_reference_name
   connection:
-    endpoint_url: "https://s3-api.us-geo.objectstorage.service.networklayer.com"
+    endpoint_url: "https://s3-api.us-geo.objectstorage.softlayer.net"
     access_key_id: "722432c254bc4eaa96e05897bf2779e2"
     secret_access_key: "286965ac10ecd4de8b44306288c7f5a3e3cf81976a03075c"
   source:
     bucket: training-data
-  type: s3
+    type: s3
