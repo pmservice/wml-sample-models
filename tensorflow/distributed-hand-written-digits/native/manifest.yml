@@ -1,0 +1,31 @@
+model_definition:
+  name: tf-dist-multi
+  author:
+    name: dmw
+  description: native distributed tensorflow
+  framework:
+    name: tensorflow
+    version: 1.5
+  execution:
+    command: PS_HOSTS_COUNT=1 ./launcher.py python mnist_dist.py
+    compute_configuration:
+      name: p100x2
+      nodes: 2
+training_data_reference:
+  name: training_data_reference_name
+  connection:
+    endpoint_url: "https://s3-api.us-geo.objectstorage.service.networklayer.com"
+    aws_access_key_id: "..."
+    aws_secret_access_key: "..."
+  source:
+    bucket: train-data
+  type: s3
+training_results_reference:
+  name: training_results_reference_name
+  connection:
+    endpoint_url: "https://s3-api.us-geo.objectstorage.service.networklayer.com"
+    aws_access_key_id: "..."
+    aws_secret_access_key: "..."
+  target:
+    bucket: train-results
+  type: s3
