@@ -25,9 +25,10 @@ import tempfile
 import os
 from tensorflow.examples.tutorials.mnist import input_data
 
-chkptpath = os.getenv("RESULT_DIR") + "/mnist"
+chkptpath = os.getenv("RESULT_DIR")+"/mnist"
 training_data_dir = os.getenv("DATA_DIR")
 learner_id = os.getenv("LEARNER_ID")
+
 
 if training_data_dir == None:
     exit(1)
@@ -136,18 +137,17 @@ def main():
     # tf Graph input
     x = tf.placeholder(tf.float32, [None, n_input], name="x")
     # Construct model
-    keep_prob = tf.placeholder_with_default(1.0, shape=(), name="keepprob")
-    pred = deepnn(x, 1.0)
-    pRes = tf.identity(pred, name="pRes")
+    keep_prob = tf.placeholder_with_default(1.0,shape=(), name="keepprob")
+    pred = deepnn(x,1.0)
+    pRes = tf.identity(pred,name="pRes")
 
     if os.getenv("OMPI_COMM_WORLD_RANK") == "0":
-         print("writing checkpoint file", chkptpath + "_basegraph.meta")
-         tf.train.export_meta_graph(chkptpath + "_basegraph.meta", as_text=True)
+         print("writing checkpoint file", chkptpath+"_basegraph.meta")
+         tf.train.export_meta_graph(chkptpath+"_basegraph.meta", as_text=True)
 
     #import the ddl library; this creates objects for distribution so 
     #it must be done after exporting meta graph
     import ddl
-    
     y = tf.placeholder(tf.int64, [None], name="y")
     # Define loss and optimizer
     with tf.name_scope('loss'):
@@ -167,6 +167,7 @@ def main():
 
 
     saver = tf.train.Saver() 
+
     # Launch the graph
     with tf.Session(config=tf.ConfigProto()) as sess:
         sess.run(tf.global_variables_initializer())
@@ -193,21 +194,20 @@ def main():
                   ", Minibatch Loss= " + "{:.6f}".format(loss) +
                   ", Training Accuracy= " + "{:.5f}".format(acc))
             step += 1
-            if os.getenv("OMPI_COMM_WORLD_RANK") == "0" and step%10 == 0 and step != 0:
-                saver.save(sess, chkptpath, global_step=step)
-                print('step {} save checkpoint path: {}'.format(step, chkptpath))
+            if os.getenv("OMPI_COMM_WORLD_RANK") == "0" and step%10==0 and step!=0:
+                saver.save(sess, chkptpath,global_step=step)
+                print('[%d] save checkpoint' % step+" path: "+chkptpath)
 
 
-        print("DDL " + str(ddl.rank()) + "] Optimization Finished!")
-        print("Last step in session: {}".format(step))
+        print("DDL "+str(ddl.rank())+"] Optimization Finished!")
 
 
 
         # Calculate accuracy for 256 mnist test images
-        print("DDL " + str(ddl.rank()) + "] Testing Accuracy:", \
+        print("DDL "+str(ddl.rank())+"] Testing Accuracy:", \
             sess.run(accuracy, feed_dict={x: mnist.test.images[:256],
                                           y: mnist.test.labels[:256]}))
 
-if __name__ == "__main__":
-    
-    main()
+
+
+main()
