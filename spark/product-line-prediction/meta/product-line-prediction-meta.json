@@ -4,11 +4,11 @@
    "description":"product-line-prediction-pipeline",
    "framework":{
      "name":"mllib",
-     "version":"2.0",
+     "version":"2.1",
      "runtimes":[
             {
                "name":"spark",
-               "version":"2.0"
+               "version":"2.1"
             }
          ]
       },
@@ -20,11 +20,11 @@
    "model_meta":{
    "framework":{
       "name":"mllib",
-      "version":"2.0",
+      "version":"2.1",
       "runtimes":[
             {
                "name":"spark",
-               "version":"2.0"
+               "version":"2.1"
             }
          ]
       },

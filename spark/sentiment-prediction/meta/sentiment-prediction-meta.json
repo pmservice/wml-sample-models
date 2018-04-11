@@ -4,11 +4,11 @@
     "description":"sentiment-prediction-pipeline",
     "framework": {
       "name": "mllib",
-      "version": "2.0",
+      "version": "2.1",
       "runtimes": [
         {
           "name": "spark",
-          "version": "2.0"
+          "version": "2.1"
         }
       ]
     },
@@ -16,18 +16,18 @@
       "name": "IBM",
       "email": ""
     },
-    "type":"sparkml-pipeline-2.0",
-    "runtimeEnvironment": "spark-2.0"
+    "type":"sparkml-pipeline-2.1",
+    "runtimeEnvironment": "spark-2.1"
   },
   "model_meta": {
     "name":"Sentiment Prediction",
     "description":"Predicts comment sentiment about particular topic for marketing company.",
     "framework": {
       "name": "mllib",
-      "version": "2.0",
+      "version": "2.1",
       "runtimes": [{
         "name": "spark",
-        "version": "2.0"
+        "version": "2.1"
       }]
     },
     "author": {
