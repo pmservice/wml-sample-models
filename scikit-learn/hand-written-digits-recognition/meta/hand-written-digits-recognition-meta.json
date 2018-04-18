@@ -22,7 +22,7 @@
       "description":"This sample model shows how to recognize hand-written digits with IBM Watson Machine Learning.",
       "author":{
          "name":"IBM",
-         "email":"ibm@ibm.com"
+         "email":""
       },
       "framework":{
          "name":"scikit-learn",

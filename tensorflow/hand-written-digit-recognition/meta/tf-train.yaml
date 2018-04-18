@@ -2,7 +2,7 @@ model_definition:
   name: tf-mnist-showtest1
   author:
     name: DL Developer
-    email: dl@example.com
+    email: ""
   description: Simple MNIST model implemented in TF
   framework:
     name: tensorflow
