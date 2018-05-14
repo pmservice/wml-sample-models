@@ -5,6 +5,7 @@ import json
 import os
 from base64 import b64encode
 import ssl
+import argparse
 
 try:
     from lomond import WebSocket
@@ -12,11 +13,21 @@ except:
     print("This program depends on the lomond python library.  Please use \"pip install lomond\" to install it and try again.")
     sys.exit(-1)
 
-if len(sys.argv) != 2:
-    print("Usage: python dlmonitor.py training-run-id")
-    sys.exit(-1)
+parser = argparse.ArgumentParser(description='Monitor running DL programs.')
 
-model_id=sys.argv[1]
+parser.add_argument('training_id',type=str)
+parser.add_argument('--fromlast', type=int, default=10, metavar="N", help='start reading from N lines back in the log, N<=1000')
+parser.add_argument('--fromstart', action='store_true', help='start reading from the start of the log')
+
+args = parser.parse_args()
+
+model_id=args.training_id
+last=args.fromlast
+
+if last > 1000:
+    last=1000
+if args.fromstart:
+    last=-1
 
 if "ML_ENV" not in os.environ or "ML_USERNAME" not in os.environ or "ML_PASSWORD" not in os.environ:
     print("Please ensure environment variables ML_USERNAME, ML_PASSOWRD and ML_ENV are defined")
@@ -63,7 +74,10 @@ else:
     sys.exit(-1)
 
 try:
-    websocket = WebSocket(ml_url.replace("https","wss").replace("http","ws")+"/v3/models/"+model_id+"/monitor?last=10")
+    url = ml_url.replace("https","wss").replace("http","ws")+"/v3/models/"+model_id+"/monitor"
+    if last >= 0:
+        url += "?last="+str(last)
+    websocket = WebSocket(url)
     websocket.add_header(toBytes("Authorization","utf-8"),toBytes("bearer "+token,"utf-8"))
     for event in websocket:
         if event.name == 'text':
@@ -75,4 +89,4 @@ try:
                     sys.stdout.write(message)
                     sys.stdout.flush()
 except Exception as ex:
-    print("ERROR:"+ex)
+    print("ERROR:"+str(ex))
