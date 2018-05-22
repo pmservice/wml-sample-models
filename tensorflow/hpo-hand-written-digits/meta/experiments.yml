@@ -1,0 +1,52 @@
+settings:
+  name: tf-mnist-hyperparameter-optimization-experiment
+  description: Simple MNIST model implemented in TF using Hyperparameter Optimization
+  author:
+    name: DL Developer
+    email: dl@example.com
+training_references: 
+- name: model1
+  training_definition_url: https://ibm-watson-ml.mybluemix.net/v3/ml_assets/training_definitions/b54925fe-e5d9-473d-9b8a-c1accc60b369
+  command: python3 convolutional_network.py --trainImagesFile ${DATA_DIR}/train-images-idx3-ubyte.gz
+    --trainLabelsFile ${DATA_DIR}/train-labels-idx1-ubyte.gz --testImagesFile ${DATA_DIR}/t10k-images-idx3-ubyte.gz
+    --testLabelsFile ${DATA_DIR}/t10k-labels-idx1-ubyte.gz --learningRate 0.001 --trainingIters 4
+  compute_configuration:
+      name: k80
+  hyper_parameters_optimization:
+    method:
+      name: random
+      parameters:
+      - name: objective
+        string_value: accuracy
+      - name: maximize_or_minimize
+        string_value: maximize
+      - name: num_optimizer_steps
+        int_value: 4
+    hyper_parameters:
+    - name: learning_rate
+      double_range:
+        min_value: 0.005
+        max_value: 0.01
+        step": 0.001
+    - name: conv_filter_size1
+      int_range:
+        min_value: 5
+        max_value: 6
+    - name: conv_filter_size2
+      int_range:
+        min_value: 5
+        max_value: 6
+    - name: fc
+      int_range: 
+        min_value: 9
+        max_value: 10
+        power: 2
+training_results_reference:
+  name: training-results-reference_name
+  connection: 
+    endpoint_url: "https://s3-api.us-geo.objectstorage.softlayer.net"
+    access_key_id: "722432c254bc4eaa96e05897bf2779e2"
+    secret_access_key: "286965ac10ecd4de8b44306288c7f5a3e3cf81976a03075c"
+  target:
+    bucket: training-results
+  type: s3
