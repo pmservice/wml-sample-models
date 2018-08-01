@@ -1,0 +1,1 @@
+Python Library containing user defined transformer that normalizes data with L2 norm of the features. This custom transfomer will be used with GNFUV based model that predicts temperature based on time and humidity.
