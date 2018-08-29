@@ -1,0 +1,123 @@
+{
+  "pipeline_meta": {
+	  "name": "Drug model experiment",
+  "description": "Defines model to predict drug for patient with heart disease",
+  "framework": {
+    "name": "mllib",
+    "version": "2.3",
+    "runtimes": [
+      {
+        "name": "spark",
+        "version": "2.3"
+      }
+    ]
+  },
+  "training_data_reference": [
+    {
+      "name": "Drug training data",
+      "connection": {
+		"db": "BLUDB",
+		"host": "dashdb-entry-yp-dal09-09.services.dal.bluemix.net",
+		"username": "dash11348",
+		"password": "G_2jp_K2avMY"	      
+      },
+      "source": {
+		"tablename": "DRUG_TRAIN_DATA_UPDATED",
+		"type": "dashdb"	      
+      }
+    }
+  ],
+  "author": {
+    "name": "IBM",
+    "email": ""
+  }  
+    },
+  "model_meta": {
+  "framework": {
+    "name": "mllib",
+    "version": "2.3",
+    "runtimes": [{
+                   "name": "spark",
+                   "version": "2.3"
+                 }]
+				},
+  "name": "Best Heart Drug Selection",
+  "description": "Predicts the best drug for a patient with heart disease.",
+  "training_definition_url": "$Location$",
+  "author": {
+              "name": "IBM",
+              "email": ""
+            },
+  "label_column": "DRUG",
+  "training_data_reference":[{
+      "name": "Drug training data",
+      "connection": {
+		"db": "BLUDB",
+		"host": "dashdb-entry-yp-dal09-09.services.dal.bluemix.net",
+		"username": "dash11348",
+		"password": "G_2jp_K2avMY"
+      },
+      "source": {
+		"tablename": "DRUG_TRAIN_DATA_UPDATED",
+		"type": "dashdb"
+      }
+    }],
+  "training_data_schema": {
+    "type": "struct",
+    "fields": [
+      {
+       "name":"AGE",
+       "type":"integer",
+       "nullable":true,
+       "metadata":{"scale":0,"name":"AGE"}
+      },
+      {
+       "name":"SEX",
+       "type":"string",
+       "nullable":true,
+       "metadata":{"scale":0,"name":"SEX"}
+      },
+	  {
+       "type":"string",
+       "name":"BP",
+       "nullable":true,
+       "metadata":{"scale":0,"name":"BP"}	  
+	  },
+	  {
+	   "name":"CHOLESTEROL",
+	   "type":"string",
+	   "nullable":true,
+	   "metadata":{"scale":0,"name":"CHOLESTEROL"}	  
+	  },
+	  {
+  	   "name":"NA",
+	   "type":"decimal(12,6)",
+	   "nullable":true,
+	   "metadata":{"scale":6,"name":"NA"}	   
+	  },
+	  {
+       "name":"K",
+       "type":"decimal(13,6)",
+       "nullable":true,
+       "metadata":{"scale":6,"name":"K"}
+      },
+      {
+   	   "name":"DRUG",
+	   "type":"string",
+	   "nullable":true,
+       "metadata":{"scale":0,"name":"DRUG"}
+      }
+    ]
+  },
+  "evaluation": {
+    "method": "multiclass",
+    "metrics": [
+      {
+        "name": "accuracy",
+        "threshold": 0.8,
+        "value": 0.870968
+      }
+    ]
+  }
+ }
+}

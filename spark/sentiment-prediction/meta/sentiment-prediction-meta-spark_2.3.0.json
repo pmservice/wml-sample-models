@@ -1,0 +1,54 @@
+{
+  "pipeline_meta": {
+    "name":"sentiment-prediction-pipeline",
+    "description":"sentiment-prediction-pipeline",
+    "framework": {
+      "name": "mllib",
+      "version": "2.3",
+      "runtimes": [
+        {
+          "name": "spark",
+          "version": "2.3"
+        }
+      ]
+    },
+    "author": {
+      "name": "IBM",
+      "email": ""
+    },
+    "type":"sparkml-pipeline-2.1",
+    "runtimeEnvironment": "spark-2.1"
+  },
+  "model_meta": {
+    "name":"Sentiment Prediction",
+    "description":"Predicts comment sentiment about particular topic for marketing company.",
+    "framework": {
+      "name": "mllib",
+      "version": "2.3",
+      "runtimes": [{
+        "name": "spark",
+        "version": "2.3"
+      }]
+    },
+    "author": {
+      "name": "IBM",
+      "email": ""
+    },
+    "label_column": "sentiment",
+    "training_data_schema": {"type": "struct", 
+                             "fields": [
+                               {"metadata": {}, 
+                                "type": "integer", 
+                                "name": "id", 
+                                "nullable": true},
+                               {"metadata": {}, 
+                                "type": "string", 
+                                "name":"text", 
+                                "nullable": true},
+                               {"metadata": {}, 
+                                "type": "string", 
+                                "name": "label", 
+                                "nullable": true}
+                             ]}    
+  }
+}
