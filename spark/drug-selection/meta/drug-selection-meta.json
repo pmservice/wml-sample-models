@@ -19,18 +19,18 @@
 		"db": "BLUDB",
 		"host": "dashdb-entry-yp-dal09-09.services.dal.bluemix.net",
 		"username": "dash11348",
-		"password": "G_2jp_K2avMY"	      
+		"password": "G_2jp_K2avMY"
       },
       "source": {
 		"tablename": "DRUG_TRAIN_DATA_UPDATED",
-		"type": "dashdb"	      
+		"type": "dashdb"
       }
     }
   ],
   "author": {
     "name": "IBM",
     "email": ""
-  }  
+  }
     },
   "model_meta": {
   "framework": {
@@ -62,6 +62,67 @@
 		"type": "dashdb"
       }
     }],
+  "output_data_schema": {
+      "type": "struct",
+      "fields": [
+        {
+         "name":"AGE",
+         "type":"integer",
+         "nullable":true,
+         "metadata":{"scale":0,"name":"AGE"}
+        },
+        {
+         "name":"SEX",
+         "type":"string",
+         "nullable":true,
+         "metadata":{"scale":0,"name":"SEX"}
+        },
+  	  {
+         "type":"string",
+         "name":"BP",
+         "nullable":true,
+         "metadata":{"scale":0,"name":"BP"}
+  	  },
+  	  {
+  	   "name":"CHOLESTEROL",
+  	   "type":"string",
+  	   "nullable":true,
+  	   "metadata":{"scale":0,"name":"CHOLESTEROL"}
+  	  },
+  	  {
+    	   "name":"NA",
+  	   "type":"decimal(12,6)",
+  	   "nullable":true,
+  	   "metadata":{"scale":6,"name":"NA"}
+  	  },
+  	  {
+         "name":"K",
+         "type":"decimal(13,6)",
+         "nullable":true,
+         "metadata":{"scale":6,"name":"K"}
+      },
+      {"metadata": {"modeling_role": "prediction"},
+        "name": "prediction",
+        "nullable": true,
+        "type": "double"},
+      {"metadata": {"modeling_role": "decoded-target"},
+          "name": "predictedLabel",
+          "nullable": true,
+          "type": "string"},
+      {"metadata": {"modeling_role": "probability"},
+           "name": "probability",
+           "nullable": true,
+           "type": {"containsNull": true,
+            "elementType": "double",
+            "type": "array"}},
+        {
+     	   "name":"DRUG",
+  	   "type":"string",
+  	   "nullable":true,
+         "metadata":{"scale":0,"name":"DRUG"}
+        }
+      ]
+    },
   "training_data_schema": {
     "type": "struct",
     "fields": [
@@ -81,19 +142,19 @@
        "type":"string",
        "name":"BP",
        "nullable":true,
-       "metadata":{"scale":0,"name":"BP"}	  
+       "metadata":{"scale":0,"name":"BP"}
 	  },
 	  {
 	   "name":"CHOLESTEROL",
 	   "type":"string",
 	   "nullable":true,
-	   "metadata":{"scale":0,"name":"CHOLESTEROL"}	  
+	   "metadata":{"scale":0,"name":"CHOLESTEROL"}
 	  },
 	  {
   	   "name":"NA",
 	   "type":"decimal(12,6)",
 	   "nullable":true,
-	   "metadata":{"scale":6,"name":"NA"}	   
+	   "metadata":{"scale":6,"name":"NA"}
 	  },
 	  {
        "name":"K",
