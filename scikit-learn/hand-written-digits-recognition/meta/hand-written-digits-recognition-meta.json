@@ -307,6 +307,20 @@
             "type":"ndarray"
          }
       },
+      "output_data_schema":{
+         "prediction": {
+            "fields":[
+               {
+                  "type":"float", 
+                  "name":"prediction"
+               }
+            ],
+            "type":"ndarray",
+            "metadata": {
+                           "modeling_role": "prediction"
+                        }
+            }
+      },
       "input_data_schema":{
          "features":{
             "fields":[
