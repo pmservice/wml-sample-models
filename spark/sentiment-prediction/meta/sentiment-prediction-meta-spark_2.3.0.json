@@ -49,6 +49,43 @@
                                 "type": "string", 
                                 "name": "label", 
                                 "nullable": true}
-                             ]}    
+                             ]},
+    "output_data_schema": {"type": "struct", 
+                             "fields": [
+                               { 
+                                "name": "id",
+                                "type": "integer", 
+                                "nullable": true,
+                                "metadata": {}
+                               },
+                               { 
+                                "name":"words",
+                                "type": {"containsNull": false,
+                                         "elementType": "string",
+                                         "type": "array"},
+                                "nullable": true,
+                                "metadata": {}
+                               },
+                               { 
+                                "name": "label",
+                                "type": "string", 
+                                "nullable": true,
+                                "metadata": {}
+                               },
+                               {
+                                "name": "prediction",
+                                "nullable": true,
+                                "type": "double",
+                                "metadata": {"modeling_role": "prediction"}
+                               },
+                               {
+                                "name": "probability",
+                                "nullable": true,
+                                "type": {"containsNull": true,
+                                         "elementType": "double",
+                                         "type": "array"},
+                                "metadata": {"modeling_role": "probability"}
+                               }]
+                          }
   }
 }

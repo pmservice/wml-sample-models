@@ -109,6 +109,67 @@
       }
     ]
   },
+  "output_data_schema": {
+      "type": "struct",
+      "fields": [
+        {
+         "name":"AGE",
+         "type":"integer",
+         "nullable":true,
+         "metadata":{"scale":0,"name":"AGE"}
+        },
+        {
+         "name":"SEX",
+         "type":"string",
+         "nullable":true,
+         "metadata":{"scale":0,"name":"SEX"}
+        },
+  	  {
+         "type":"string",
+         "name":"BP",
+         "nullable":true,
+         "metadata":{"scale":0,"name":"BP"}
+  	  },
+  	  {
+  	   "name":"CHOLESTEROL",
+  	   "type":"string",
+  	   "nullable":true,
+  	   "metadata":{"scale":0,"name":"CHOLESTEROL"}
+  	  },
+  	  {
+    	   "name":"NA",
+  	   "type":"decimal(12,6)",
+  	   "nullable":true,
+  	   "metadata":{"scale":6,"name":"NA"}
+  	  },
+  	  {
+         "name":"K",
+         "type":"decimal(13,6)",
+         "nullable":true,
+         "metadata":{"scale":6,"name":"K"}
+      },
+      {"metadata": {"modeling_role": "prediction"},
+        "name": "prediction",
+        "nullable": true,
+        "type": "double"},
+      {"metadata": {"modeling_role": "decoded-target"},
+          "name": "predictedLabel",
+          "nullable": true,
+          "type": "string"},
+      {"metadata": {"modeling_role": "probability"},
+           "name": "probability",
+           "nullable": true,
+           "type": {"containsNull": true,
+            "elementType": "double",
+            "type": "array"}},
+        {
+     	   "name":"DRUG",
+  	   "type":"string",
+  	   "nullable":true,
+         "metadata":{"scale":0,"name":"DRUG"}
+        }
+      ]
+    },
   "evaluation": {
     "method": "multiclass",
     "metrics": [
