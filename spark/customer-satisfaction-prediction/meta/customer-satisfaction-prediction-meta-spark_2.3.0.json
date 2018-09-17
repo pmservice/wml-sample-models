@@ -12,6 +12,21 @@
             }
          ]
       },
+  "training_data_reference": [
+    {
+      "name": "Drug training data",
+      "connection": {
+                "db": "BLUDB",
+                "host": "dashdb-entry-yp-dal09-09.services.dal.bluemix.net",
+                "username": "dash11348",
+                "password": "G_2jp_K2avMY"
+      },
+      "source": {
+                "tablename": "CUSTOMER_SATISFACTION_TRAIN_DATA",
+                "type": "dashdb"
+      }
+    }
+  ],
       "author":{
          "name":"IBM",
          "email":""

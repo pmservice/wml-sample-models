@@ -227,7 +227,7 @@
             },
             {
                "name":"TotalCharges",
-               "type":"string",
+               "type":"decimal(13,6)",
                "nullable":true,
                "metadata":{
                   "scale":0,
