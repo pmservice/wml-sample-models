@@ -14,7 +14,7 @@
       },
   "training_data_reference": [
     {
-      "name": "Drug training data",
+      "name": "GoSales training data",
       "connection": {
                 "db": "BLUDB",
                 "host": "dashdb-entry-yp-dal09-09.services.dal.bluemix.net",
