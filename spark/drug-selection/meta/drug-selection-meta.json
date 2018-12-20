@@ -1,206 +1,287 @@
 {
-  "pipeline_meta": {
-	  "name": "Drug model experiment",
-  "description": "Defines model to predict drug for patient with heart disease",
-  "framework": {
-    "name": "mllib",
-    "version": "2.1",
-    "runtimes": [
-      {
-        "name": "spark",
-        "version": "2.1"
-      }
-    ]
-  },
-  "training_data_reference": [
-    {
-      "name": "Drug training data",
-      "connection": {
-		"db": "BLUDB",
-		"host": "dashdb-entry-yp-dal09-09.services.dal.bluemix.net",
-		"username": "dash11348",
-		"password": "G_2jp_K2avMY"
-      },
-      "source": {
-		"tablename": "DRUG_TRAIN_DATA_UPDATED",
-		"type": "dashdb"
-      }
-    }
-  ],
-  "author": {
-    "name": "IBM",
-    "email": ""
-  }
-    },
-  "model_meta": {
-  "framework": {
-    "name": "mllib",
-    "version": "2.1",
-    "runtimes": [{
-                   "name": "spark",
-                   "version": "2.1"
-                 }]
-				},
-  "name": "Best Heart Drug Selection",
-  "description": "Predicts the best drug for a patient with heart disease.",
-  "training_definition_url": "$Location$",
-  "author": {
-              "name": "IBM",
-              "email": ""
-            },
-  "label_column": "DRUG",
-  "training_data_reference":[{
-      "name": "Drug training data",
-      "connection": {
-		"db": "BLUDB",
-		"host": "dashdb-entry-yp-dal09-09.services.dal.bluemix.net",
-		"username": "dash11348",
-		"password": "G_2jp_K2avMY"
-      },
-      "source": {
-		"tablename": "DRUG_TRAIN_DATA_UPDATED",
-		"type": "dashdb"
-      }
-    }],
-  "output_data_schema": {
-    "type": "struct",
-    "fields": [
-        {
-            "name": "AGE",
-            "nullable": true,
-            "metadata": {},
-            "type": "double"
-        },
-        {
-            "name": "SEX",
-            "nullable": true,
-            "metadata": {},
-            "type": "string"
-        },
-        {
-            "name": "BP",
-            "nullable": true,
-            "metadata": {},
-            "type": "string"
-        },
-        {
-            "name": "CHOLESTEROL",
-            "nullable": true,
-            "metadata": {},
-            "type": "string"
-        },
-        {
-            "name": "NA",
-            "nullable": true,
-            "metadata": {},
-            "type": "double"
-        },
-        {
-            "name": "K",
-            "nullable": true,
-            "metadata": {},
-            "type": "double"
-        },
-        {
-            "name": "prediction",
-            "nullable": true,
-            "metadata": {
-                "modeling_role": "prediction"
-            },
-            "type": "double"
-        },
-        {
-            "name": "predictedLabel",
-            "nullable": true,
-            "metadata": {
-                "values": [
-                    "drugX",
-                    "drugB",
-                    "drugA",
-                    "drugC"
-                ],
-                "modeling_role": "decoded-target"
-            },
-            "type": "string"
-        },
-        {
-            "name": "probability",
-            "nullable": true,
-            "metadata": {
-                "modeling_role": "probability"
-            },
-            "type": {
-                "type": "array",
-                "containsNull": true,
-                "elementType": "double"
+   "pipeline_meta":{
+      "name":"Drug model experiment",
+      "description":"Defines model to predict drug for patient with heart disease",
+      "framework":{
+         "name":"mllib",
+         "version":"2.1",
+         "runtimes":[
+            {
+               "name":"spark",
+               "version":"2.1"
             }
-        }
-    ]
-},
-  "training_data_schema": {
-    "type": "struct",
-    "fields": [
-        {
-            "name": "AGE",
-            "nullable": true,
-            "metadata": {},
-            "type": "double"
-        },
-        {
-            "name": "SEX",
-            "nullable": true,
-            "metadata": {},
-            "type": "string"
-        },
-        {
-            "name": "BP",
-            "nullable": true,
-            "metadata": {},
-            "type": "string"
-        },
-        {
-            "name": "CHOLESTEROL",
-            "nullable": true,
-            "metadata": {},
-            "type": "string"
-        },
-        {
-            "name": "NA",
-            "nullable": true,
-            "metadata": {},
-            "type": "double"
-        },
-        {
-            "name": "K",
-            "nullable": true,
-            "metadata": {},
-            "type": "double"
-        },
-        {
-            "name": "DRUG",
-            "nullable": true,
-            "metadata": {
-                "values": [
-                    "drugX",
-                    "drugB",
-                    "drugA",
-                    "drugC"
-                ],
-                "modeling_role": "target"
+         ]
+      },
+      "training_data_reference":[
+         {
+            "name":"Drug training data",
+            "connection":{
+               "db":"BLUDB",
+               "host":"dashdb-entry-yp-dal09-09.services.dal.bluemix.net",
+               "username":"dash11348",
+               "password":"G_2jp_K2avMY"
             },
-            "type": "string"
-        }
-    ]
-},
-  "evaluation": {
-    "method": "multiclass",
-    "metrics": [
-      {
-        "name": "accuracy",
-        "threshold": 0.8,
-        "value": 0.870968
+            "source":{
+               "tablename":"DRUG_TRAIN_DATA_UPDATED",
+               "type":"dashdb"
+            }
+         }
+      ],
+      "author":{
+         "name":"IBM",
+         "email":""
       }
-    ]
-  }
- }
+   },
+   "model_meta":{
+      "framework":{
+         "name":"mllib",
+         "version":"2.1",
+         "runtimes":[
+            {
+               "name":"spark",
+               "version":"2.1"
+            }
+         ]
+      },
+      "name":"Best Heart Drug Selection",
+      "description":"Predicts the best drug for a patient with heart disease.",
+      "training_definition_url":"$Location$",
+      "author":{
+         "name":"IBM",
+         "email":""
+      },
+      "label_column":"DRUG",
+      "training_data_reference":[
+         {
+            "name":"Drug training data",
+            "connection":{
+               "db":"BLUDB",
+               "host":"dashdb-entry-yp-dal09-09.services.dal.bluemix.net",
+               "username":"dash11348",
+               "password":"G_2jp_K2avMY"
+            },
+            "source":{
+               "tablename":"DRUG_TRAIN_DATA_UPDATED",
+               "type":"dashdb"
+            }
+         }
+      ],
+      "output_data_schema":{
+         "type":"struct",
+         "fields":[
+            {
+               "name":"AGE",
+               "nullable":true,
+               "metadata":{
+
+               },
+               "type":"double"
+            },
+            {
+               "name":"SEX",
+               "nullable":true,
+               "metadata":{
+
+               },
+               "type":"string"
+            },
+            {
+               "name":"BP",
+               "nullable":true,
+               "metadata":{
+
+               },
+               "type":"string"
+            },
+            {
+               "name":"CHOLESTEROL",
+               "nullable":true,
+               "metadata":{
+
+               },
+               "type":"string"
+            },
+            {
+               "name":"NA",
+               "nullable":true,
+               "metadata":{
+
+               },
+               "type":"double"
+            },
+            {
+               "name":"K",
+               "nullable":true,
+               "metadata":{
+
+               },
+               "type":"double"
+            },
+            {
+               "name":"prediction",
+               "nullable":true,
+               "metadata":{
+                  "modeling_role":"prediction"
+               },
+               "type":"double"
+            },
+            {
+               "name":"predictedLabel",
+               "nullable":true,
+               "metadata":{
+                  "values":[
+                     "drugX",
+                     "drugB",
+                     "drugA",
+                     "drugC"
+                  ],
+                  "modeling_role":"decoded-target"
+               },
+               "type":"string"
+            },
+            {
+               "name":"probability",
+               "nullable":true,
+               "metadata":{
+                  "modeling_role":"probability"
+               },
+               "type":{
+                  "type":"array",
+                  "containsNull":true,
+                  "elementType":"double"
+               }
+            }
+         ]
+      },
+      "input_data_schema":{
+         "fields":[
+            {
+               "metadata":{
+                  "modeling_role":"feature"
+               },
+               "name":"AGE",
+               "nullable":true,
+               "type":"double"
+            },
+            {
+               "metadata":{
+                  "modeling_role":"feature"
+               },
+               "name":"SEX",
+               "nullable":true,
+               "type":"string"
+            },
+            {
+               "metadata":{
+                  "modeling_role":"feature"
+               },
+               "name":"BP",
+               "nullable":true,
+               "type":"string"
+            },
+            {
+               "metadata":{
+                  "modeling_role":"feature"
+               },
+               "name":"CHOLESTEROL",
+               "nullable":true,
+               "type":"string"
+            },
+            {
+               "metadata":{
+                  "modeling_role":"feature"
+               },
+               "name":"NA",
+               "nullable":true,
+               "type":"double"
+            },
+            {
+               "metadata":{
+                  "modeling_role":"feature"
+               },
+               "name":"K",
+               "nullable":true,
+               "type":"double"
+            }
+         ],
+         "type":"struct"
+      },
+      "training_data_schema":{
+         "type":"struct",
+         "fields":[
+            {
+               "name":"AGE",
+               "nullable":true,
+               "metadata":{
+
+               },
+               "type":"double"
+            },
+            {
+               "name":"SEX",
+               "nullable":true,
+               "metadata":{
+
+               },
+               "type":"string"
+            },
+            {
+               "name":"BP",
+               "nullable":true,
+               "metadata":{
+
+               },
+               "type":"string"
+            },
+            {
+               "name":"CHOLESTEROL",
+               "nullable":true,
+               "metadata":{
+
+               },
+               "type":"string"
+            },
+            {
+               "name":"NA",
+               "nullable":true,
+               "metadata":{
+
+               },
+               "type":"double"
+            },
+            {
+               "name":"K",
+               "nullable":true,
+               "metadata":{
+
+               },
+               "type":"double"
+            },
+            {
+               "name":"DRUG",
+               "nullable":true,
+               "metadata":{
+                  "values":[
+                     "drugX",
+                     "drugB",
+                     "drugA",
+                     "drugC"
+                  ],
+                  "modeling_role":"target"
+               },
+               "type":"string"
+            }
+         ]
+      },
+      "evaluation":{
+         "method":"multiclass",
+         "metrics":[
+            {
+               "name":"accuracy",
+               "threshold":0.8,
+               "value":0.870968
+            }
+         ]
+      }
+   }
 }
