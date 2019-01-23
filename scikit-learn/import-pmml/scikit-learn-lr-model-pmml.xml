@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_3" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.3">
+	<Header>
+		<Application name="JPMML-SkLearn" version="1.5.9"/>
+		<Timestamp>2019-01-19T19:51:39Z</Timestamp>
+	</Header>
+	<DataDictionary>
+		<DataField name="IS_TENT" optype="categorical" dataType="integer">
+			<Value value="0"/>
+			<Value value="1"/>
+		</DataField>
+		<DataField name="AGE" optype="continuous" dataType="double"/>
+		<DataField name="GENDER_index" optype="continuous" dataType="double"/>
+		<DataField name="MARITAL_STATUS_index" optype="continuous" dataType="double"/>
+		<DataField name="PROFESSION_index" optype="continuous" dataType="double"/>
+	</DataDictionary>
+	<RegressionModel functionName="classification" normalizationMethod="logit">
+		<MiningSchema>
+			<MiningField name="IS_TENT" usageType="target"/>
+			<MiningField name="AGE"/>
+			<MiningField name="GENDER_index"/>
+			<MiningField name="MARITAL_STATUS_index"/>
+			<MiningField name="PROFESSION_index"/>
+		</MiningSchema>
+		<Output>
+			<OutputField name="probability(0)" optype="continuous" dataType="double" feature="probability" value="0"/>
+			<OutputField name="probability(1)" optype="continuous" dataType="double" feature="probability" value="1"/>
+		</Output>
+		<RegressionTable intercept="1.4614331651504153" targetCategory="1">
+			<NumericPredictor name="AGE" coefficient="-0.16321817350094606"/>
+			<NumericPredictor name="GENDER_index" coefficient="1.0329790370834575"/>
+			<NumericPredictor name="MARITAL_STATUS_index" coefficient="-0.6015896625617172"/>
+			<NumericPredictor name="PROFESSION_index" coefficient="0.6089971249254086"/>
+		</RegressionTable>
+		<RegressionTable intercept="0.0" targetCategory="0"/>
+	</RegressionModel>
+</PMML>
