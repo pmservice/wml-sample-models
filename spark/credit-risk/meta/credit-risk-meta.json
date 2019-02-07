@@ -17,6 +17,10 @@
 	},
 	"model_meta": {
 		"runtime_environment": "spark-2.3",
+		"framework": {
+			"name": "mllib",
+			"version": "2.3"
+		},
 		"learning_configuration_url": "https://us-south.ml.cloud.ibm.com/v3/wml_instances/02ca2468-8026-4f50-ab90-5cd759d43d5c/published_models/2e4292cb-3839-4d28-b716-95058985d7be/learning_configuration",
 		"name": "AIOS Spark German Risk Model - Final",
 		"label_col": "Risk",
