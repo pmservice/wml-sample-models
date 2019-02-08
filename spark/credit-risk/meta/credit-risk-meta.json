@@ -635,6 +635,16 @@
             }
          ],
          "type":"struct"
-      }
+      },
+      "evaluation":{
+         "method":"binary",
+         "metrics":[
+            {
+               "name":"areaUnderROC",
+               "threshold":0.8,
+               "value":0.870968
+            }
+         ]
+      }      
    }
 }
