@@ -1,534 +1,640 @@
 {
-	"pipeline_meta": {
-		"name": "AIOS Spark German Risk Model - Final",
-		"framework":{
-		         "name":"mllib",
-		         "version":"2.3",
-		         "runtimes":[{
-			               "name":"spark",
-			               "version":"2.3"
-			            }]
-		},
-		"author": {},
-		"training_definition_version": {
-			"guid": "6a57f9db-ca2e-4075-8cc3-0ed0f610779c",
-			"url": "https://us-south.ml.cloud.ibm.com/v3/ml_assets/training_definitions/31891d0a-575c-4975-9e28-43d652fdfef6/versions/6a57f9db-ca2e-4075-8cc3-0ed0f610779c",
-			"content_url": "https://us-south.ml.cloud.ibm.com/v3/ml_assets/training_definitions/31891d0a-575c-4975-9e28-43d652fdfef6/versions/6a57f9db-ca2e-4075-8cc3-0ed0f610779c/content",
-			"content_status": {
-				"state": "no_content"
-			}
-		}
-	},
-	"model_meta": {
-		"framework":{
-		         "name":"mllib",
-		         "version":"2.3",
-		         "runtimes":[{
-			               "name":"spark",
-			               "version":"2.3"
-			            }]
-		},
-		"learning_configuration_url": "https://us-south.ml.cloud.ibm.com/v3/wml_instances/02ca2468-8026-4f50-ab90-5cd759d43d5c/published_models/2e4292cb-3839-4d28-b716-95058985d7be/learning_configuration",
-		"name": "AIOS Spark German Risk Model - Final",
-		"label_col": "Risk",
-		"tags": [],
-		"learning_iterations_url": "https://us-south.ml.cloud.ibm.com/v3/wml_instances/02ca2468-8026-4f50-ab90-5cd759d43d5c/published_models/2e4292cb-3839-4d28-b716-95058985d7be/learning_iterations",
-		"training_data_schema": {
-			"fields": [{
-					"name": "CheckingStatus",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "LoanDuration",
-					"nullable": true,
-					"type": "integer",
-					"metadata": {}
-				},
-				{
-					"name": "CreditHistory",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "LoanPurpose",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "LoanAmount",
-					"nullable": true,
-					"type": "integer",
-					"metadata": {}
-				},
-				{
-					"name": "ExistingSavings",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "EmploymentDuration",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "InstallmentPercent",
-					"nullable": true,
-					"type": "integer",
-					"metadata": {}
-				},
-				{
-					"name": "Sex",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "OthersOnLoan",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "CurrentResidenceDuration",
-					"nullable": true,
-					"type": "integer",
-					"metadata": {}
-				},
-				{
-					"name": "OwnsProperty",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "Age",
-					"nullable": true,
-					"type": "integer",
-					"metadata": {}
-				},
-				{
-					"name": "InstallmentPlans",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "Housing",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "ExistingCreditsCount",
-					"nullable": true,
-					"type": "integer",
-					"metadata": {}
-				},
-				{
-					"name": "Job",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "Dependents",
-					"nullable": true,
-					"type": "integer",
-					"metadata": {}
-				},
-				{
-					"name": "Telephone",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "ForeignWorker",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "Risk",
-					"nullable": true,
-					"type": "string",
-					"metadata": {
-						"modeling_role": "target"
-					}
-				}
-			],
-			"type": "struct"
-		},
-		"feedback_url": "https://us-south.ml.cloud.ibm.com/v3/wml_instances/02ca2468-8026-4f50-ab90-5cd759d43d5c/published_models/2e4292cb-3839-4d28-b716-95058985d7be/feedback",
-		"latest_version": {
-			"url": "https://us-south.ml.cloud.ibm.com/v3/ml_assets/models/2e4292cb-3839-4d28-b716-95058985d7be/versions/671cb08d-ca7e-4ac8-bc7b-08859ff6dd35",
-			"guid": "671cb08d-ca7e-4ac8-bc7b-08859ff6dd35",
-			"created_at": "2019-02-06T03:36:33.359Z"
-		},
-		"deployments": {
-			"count": 1,
-			"url": "https://us-south.ml.cloud.ibm.com/v3/wml_instances/02ca2468-8026-4f50-ab90-5cd759d43d5c/published_models/2e4292cb-3839-4d28-b716-95058985d7be/deployments"
-		},
-		"deployed_version": {
-			"url": "https://us-south.ml.cloud.ibm.com/v3/ml_assets/models/2e4292cb-3839-4d28-b716-95058985d7be/versions/671cb08d-ca7e-4ac8-bc7b-08859ff6dd35",
-			"guid": "671cb08d-ca7e-4ac8-bc7b-08859ff6dd35"
-		},
-		"evaluation_metrics_url": "https://us-south.ml.cloud.ibm.com/v3/wml_instances/02ca2468-8026-4f50-ab90-5cd759d43d5c/published_models/2e4292cb-3839-4d28-b716-95058985d7be/evaluation_metrics",
-		"output_data_schema": {
-			"fields": [{
-					"metadata": {
-						"measure": "discrete",
-						"modeling_role": "feature"
-					},
-					"name": "CheckingStatus",
-					"nullable": true,
-					"type": "string"
-				},
-				{
-					"metadata": {
-						"modeling_role": "feature"
-					},
-					"name": "LoanDuration",
-					"nullable": true,
-					"type": "integer"
-				},
-				{
-					"metadata": {
-						"measure": "discrete",
-						"modeling_role": "feature"
-					},
-					"name": "CreditHistory",
-					"nullable": true,
-					"type": "string"
-				},
-				{
-					"metadata": {
-						"measure": "discrete",
-						"modeling_role": "feature"
-					},
-					"name": "LoanPurpose",
-					"nullable": true,
-					"type": "string"
-				},
-				{
-					"metadata": {
-						"modeling_role": "feature"
-					},
-					"name": "LoanAmount",
-					"nullable": true,
-					"type": "integer"
-				},
-				{
-					"metadata": {
-						"measure": "discrete",
-						"modeling_role": "feature"
-					},
-					"name": "ExistingSavings",
-					"nullable": true,
-					"type": "string"
-				},
-				{
-					"metadata": {
-						"measure": "discrete",
-						"modeling_role": "feature"
-					},
-					"name": "EmploymentDuration",
-					"nullable": true,
-					"type": "string"
-				},
-				{
-					"metadata": {
-						"modeling_role": "feature"
-					},
-					"name": "InstallmentPercent",
-					"nullable": true,
-					"type": "integer"
-				},
-				{
-					"metadata": {
-						"measure": "discrete",
-						"modeling_role": "feature"
-					},
-					"name": "Sex",
-					"nullable": true,
-					"type": "string"
-				},
-				{
-					"metadata": {
-						"measure": "discrete",
-						"modeling_role": "feature"
-					},
-					"name": "OthersOnLoan",
-					"nullable": true,
-					"type": "string"
-				},
-				{
-					"metadata": {
-						"modeling_role": "feature"
-					},
-					"name": "CurrentResidenceDuration",
-					"nullable": true,
-					"type": "integer"
-				},
-				{
-					"metadata": {
-						"measure": "discrete",
-						"modeling_role": "feature"
-					},
-					"name": "OwnsProperty",
-					"nullable": true,
-					"type": "string"
-				},
-				{
-					"metadata": {
-						"modeling_role": "feature"
-					},
-					"name": "Age",
-					"nullable": true,
-					"type": "integer"
-				},
-				{
-					"metadata": {
-						"measure": "discrete",
-						"modeling_role": "feature"
-					},
-					"name": "InstallmentPlans",
-					"nullable": true,
-					"type": "string"
-				},
-				{
-					"metadata": {
-						"measure": "discrete",
-						"modeling_role": "feature"
-					},
-					"name": "Housing",
-					"nullable": true,
-					"type": "string"
-				},
-				{
-					"metadata": {
-						"modeling_role": "feature"
-					},
-					"name": "ExistingCreditsCount",
-					"nullable": true,
-					"type": "integer"
-				},
-				{
-					"metadata": {
-						"measure": "discrete",
-						"modeling_role": "feature"
-					},
-					"name": "Job",
-					"nullable": true,
-					"type": "string"
-				},
-				{
-					"metadata": {
-						"modeling_role": "feature"
-					},
-					"name": "Dependents",
-					"nullable": true,
-					"type": "integer"
-				},
-				{
-					"metadata": {
-						"measure": "discrete",
-						"modeling_role": "feature"
-					},
-					"name": "Telephone",
-					"nullable": true,
-					"type": "string"
-				},
-				{
-					"metadata": {
-						"measure": "discrete",
-						"modeling_role": "feature"
-					},
-					"name": "ForeignWorker",
-					"nullable": true,
-					"type": "string"
-				},
-				{
-					"metadata": {
-						"modeling_role": "probability"
-					},
-					"name": "probability",
-					"nullable": true,
-					"type": {
-						"containsNull": true,
-						"elementType": "double",
-						"type": "array"
-					}
-				},
-				{
-					"metadata": {
-						"modeling_role": "prediction"
-					},
-					"name": "prediction",
-					"nullable": true,
-					"type": "double"
-				},
-				{
-					"metadata": {
-						"modeling_role": "decoded-target"
-					},
-					"name": "predictedLabel",
-					"nullable": true,
-					"type": "string"
-				},
-				{
-					"metadata": {
-						"modeling_role": "debiased-prediction"
-					},
-					"name": "debiased_prediction",
-					"nullable": true,
-					"type": "double"
-				},
-				{
-					"metadata": {
-						"modeling_role": "debiased-probability"
-					},
-					"name": "debiased_probability",
-					"nullable": true,
-					"type": {
-						"containsNull": true,
-						"elementType": "double",
-						"type": "array"
-					}
-				}
-			],
-			"type": "struct"
-		},
-		"input_data_schema": {
-			"fields": [{
-					"name": "CheckingStatus",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "LoanDuration",
-					"nullable": true,
-					"type": "integer",
-					"metadata": {}
-				},
-				{
-					"name": "CreditHistory",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "LoanPurpose",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "LoanAmount",
-					"nullable": true,
-					"type": "integer",
-					"metadata": {}
-				},
-				{
-					"name": "ExistingSavings",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "EmploymentDuration",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "InstallmentPercent",
-					"nullable": true,
-					"type": "integer",
-					"metadata": {}
-				},
-				{
-					"name": "Sex",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "OthersOnLoan",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "CurrentResidenceDuration",
-					"nullable": true,
-					"type": "integer",
-					"metadata": {}
-				},
-				{
-					"name": "OwnsProperty",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "Age",
-					"nullable": true,
-					"type": "integer",
-					"metadata": {}
-				},
-				{
-					"name": "InstallmentPlans",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "Housing",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "ExistingCreditsCount",
-					"nullable": true,
-					"type": "integer",
-					"metadata": {}
-				},
-				{
-					"name": "Job",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "Dependents",
-					"nullable": true,
-					"type": "integer",
-					"metadata": {}
-				},
-				{
-					"name": "Telephone",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				},
-				{
-					"name": "ForeignWorker",
-					"nullable": true,
-					"type": "string",
-					"metadata": {}
-				}
-			],
-			"type": "struct"
-		}
-	}
+   "pipeline_meta":{
+      "name":"AIOS Spark German Risk Model - Final",
+      "framework":{
+         "name":"mllib",
+         "version":"2.3",
+         "runtimes":[
+            {
+               "name":"spark",
+               "version":"2.3"
+            }
+         ]
+      },
+      "author":{
+         "name":"IBM",
+         "email":""
+      },
+      "training_data_reference":[
+         {
+            "name":"Credit risk training data",
+            "connection":{
+               "db":"BLUDB",
+               "host":"dashdb-entry-yp-dal09-09.services.dal.bluemix.net",
+               "username":"dash11348",
+               "password":"G_2jp_K2avMY"
+            },
+            "source":{
+               "tablename":"CREDIT_RISK_TRAIN_DATA",
+               "type":"dashdb"
+            }
+         }
+      ],
+      "training_definition_version":{
+         "guid":"6a57f9db-ca2e-4075-8cc3-0ed0f610779c",
+         "url":"https://us-south.ml.cloud.ibm.com/v3/ml_assets/training_definitions/31891d0a-575c-4975-9e28-43d652fdfef6/versions/6a57f9db-ca2e-4075-8cc3-0ed0f610779c",
+         "content_url":"https://us-south.ml.cloud.ibm.com/v3/ml_assets/training_definitions/31891d0a-575c-4975-9e28-43d652fdfef6/versions/6a57f9db-ca2e-4075-8cc3-0ed0f610779c/content",
+         "content_status":{
+            "state":"no_content"
+         }
+      }
+   },
+   "model_meta":{
+      "framework":{
+         "name":"mllib",
+         "version":"2.3",
+         "runtimes":[
+            {
+               "name":"spark",
+               "version":"2.3"
+            }
+         ]
+      },
+      "learning_configuration_url":"https://us-south.ml.cloud.ibm.com/v3/wml_instances/02ca2468-8026-4f50-ab90-5cd759d43d5c/published_models/2e4292cb-3839-4d28-b716-95058985d7be/learning_configuration",
+      "name":"AIOS Spark German Risk Model - Final",
+      "label_col":"Risk",
+      "tags":[
 
+      ],
+      "learning_iterations_url":"https://us-south.ml.cloud.ibm.com/v3/wml_instances/02ca2468-8026-4f50-ab90-5cd759d43d5c/published_models/2e4292cb-3839-4d28-b716-95058985d7be/learning_iterations",
+      "training_data_schema":{
+         "fields":[
+            {
+               "name":"CheckingStatus",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"LoanDuration",
+               "nullable":true,
+               "type":"integer",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"CreditHistory",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"LoanPurpose",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"LoanAmount",
+               "nullable":true,
+               "type":"integer",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"ExistingSavings",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"EmploymentDuration",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"InstallmentPercent",
+               "nullable":true,
+               "type":"integer",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"Sex",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"OthersOnLoan",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"CurrentResidenceDuration",
+               "nullable":true,
+               "type":"integer",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"OwnsProperty",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"Age",
+               "nullable":true,
+               "type":"integer",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"InstallmentPlans",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"Housing",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"ExistingCreditsCount",
+               "nullable":true,
+               "type":"integer",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"Job",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"Dependents",
+               "nullable":true,
+               "type":"integer",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"Telephone",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"ForeignWorker",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"Risk",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+                  "modeling_role":"target"
+               }
+            }
+         ],
+         "type":"struct"
+      },
+      "feedback_url":"https://us-south.ml.cloud.ibm.com/v3/wml_instances/02ca2468-8026-4f50-ab90-5cd759d43d5c/published_models/2e4292cb-3839-4d28-b716-95058985d7be/feedback",
+      "latest_version":{
+         "url":"https://us-south.ml.cloud.ibm.com/v3/ml_assets/models/2e4292cb-3839-4d28-b716-95058985d7be/versions/671cb08d-ca7e-4ac8-bc7b-08859ff6dd35",
+         "guid":"671cb08d-ca7e-4ac8-bc7b-08859ff6dd35",
+         "created_at":"2019-02-06T03:36:33.359Z"
+      },
+      "deployments":{
+         "count":1,
+         "url":"https://us-south.ml.cloud.ibm.com/v3/wml_instances/02ca2468-8026-4f50-ab90-5cd759d43d5c/published_models/2e4292cb-3839-4d28-b716-95058985d7be/deployments"
+      },
+      "deployed_version":{
+         "url":"https://us-south.ml.cloud.ibm.com/v3/ml_assets/models/2e4292cb-3839-4d28-b716-95058985d7be/versions/671cb08d-ca7e-4ac8-bc7b-08859ff6dd35",
+         "guid":"671cb08d-ca7e-4ac8-bc7b-08859ff6dd35"
+      },
+      "evaluation_metrics_url":"https://us-south.ml.cloud.ibm.com/v3/wml_instances/02ca2468-8026-4f50-ab90-5cd759d43d5c/published_models/2e4292cb-3839-4d28-b716-95058985d7be/evaluation_metrics",
+      "output_data_schema":{
+         "fields":[
+            {
+               "metadata":{
+                  "measure":"discrete",
+                  "modeling_role":"feature"
+               },
+               "name":"CheckingStatus",
+               "nullable":true,
+               "type":"string"
+            },
+            {
+               "metadata":{
+                  "modeling_role":"feature"
+               },
+               "name":"LoanDuration",
+               "nullable":true,
+               "type":"integer"
+            },
+            {
+               "metadata":{
+                  "measure":"discrete",
+                  "modeling_role":"feature"
+               },
+               "name":"CreditHistory",
+               "nullable":true,
+               "type":"string"
+            },
+            {
+               "metadata":{
+                  "measure":"discrete",
+                  "modeling_role":"feature"
+               },
+               "name":"LoanPurpose",
+               "nullable":true,
+               "type":"string"
+            },
+            {
+               "metadata":{
+                  "modeling_role":"feature"
+               },
+               "name":"LoanAmount",
+               "nullable":true,
+               "type":"integer"
+            },
+            {
+               "metadata":{
+                  "measure":"discrete",
+                  "modeling_role":"feature"
+               },
+               "name":"ExistingSavings",
+               "nullable":true,
+               "type":"string"
+            },
+            {
+               "metadata":{
+                  "measure":"discrete",
+                  "modeling_role":"feature"
+               },
+               "name":"EmploymentDuration",
+               "nullable":true,
+               "type":"string"
+            },
+            {
+               "metadata":{
+                  "modeling_role":"feature"
+               },
+               "name":"InstallmentPercent",
+               "nullable":true,
+               "type":"integer"
+            },
+            {
+               "metadata":{
+                  "measure":"discrete",
+                  "modeling_role":"feature"
+               },
+               "name":"Sex",
+               "nullable":true,
+               "type":"string"
+            },
+            {
+               "metadata":{
+                  "measure":"discrete",
+                  "modeling_role":"feature"
+               },
+               "name":"OthersOnLoan",
+               "nullable":true,
+               "type":"string"
+            },
+            {
+               "metadata":{
+                  "modeling_role":"feature"
+               },
+               "name":"CurrentResidenceDuration",
+               "nullable":true,
+               "type":"integer"
+            },
+            {
+               "metadata":{
+                  "measure":"discrete",
+                  "modeling_role":"feature"
+               },
+               "name":"OwnsProperty",
+               "nullable":true,
+               "type":"string"
+            },
+            {
+               "metadata":{
+                  "modeling_role":"feature"
+               },
+               "name":"Age",
+               "nullable":true,
+               "type":"integer"
+            },
+            {
+               "metadata":{
+                  "measure":"discrete",
+                  "modeling_role":"feature"
+               },
+               "name":"InstallmentPlans",
+               "nullable":true,
+               "type":"string"
+            },
+            {
+               "metadata":{
+                  "measure":"discrete",
+                  "modeling_role":"feature"
+               },
+               "name":"Housing",
+               "nullable":true,
+               "type":"string"
+            },
+            {
+               "metadata":{
+                  "modeling_role":"feature"
+               },
+               "name":"ExistingCreditsCount",
+               "nullable":true,
+               "type":"integer"
+            },
+            {
+               "metadata":{
+                  "measure":"discrete",
+                  "modeling_role":"feature"
+               },
+               "name":"Job",
+               "nullable":true,
+               "type":"string"
+            },
+            {
+               "metadata":{
+                  "modeling_role":"feature"
+               },
+               "name":"Dependents",
+               "nullable":true,
+               "type":"integer"
+            },
+            {
+               "metadata":{
+                  "measure":"discrete",
+                  "modeling_role":"feature"
+               },
+               "name":"Telephone",
+               "nullable":true,
+               "type":"string"
+            },
+            {
+               "metadata":{
+                  "measure":"discrete",
+                  "modeling_role":"feature"
+               },
+               "name":"ForeignWorker",
+               "nullable":true,
+               "type":"string"
+            },
+            {
+               "metadata":{
+                  "modeling_role":"probability"
+               },
+               "name":"probability",
+               "nullable":true,
+               "type":{
+                  "containsNull":true,
+                  "elementType":"double",
+                  "type":"array"
+               }
+            },
+            {
+               "metadata":{
+                  "modeling_role":"prediction"
+               },
+               "name":"prediction",
+               "nullable":true,
+               "type":"double"
+            },
+            {
+               "metadata":{
+                  "modeling_role":"decoded-target"
+               },
+               "name":"predictedLabel",
+               "nullable":true,
+               "type":"string"
+            },
+            {
+               "metadata":{
+                  "modeling_role":"debiased-prediction"
+               },
+               "name":"debiased_prediction",
+               "nullable":true,
+               "type":"double"
+            },
+            {
+               "metadata":{
+                  "modeling_role":"debiased-probability"
+               },
+               "name":"debiased_probability",
+               "nullable":true,
+               "type":{
+                  "containsNull":true,
+                  "elementType":"double",
+                  "type":"array"
+               }
+            }
+         ],
+         "type":"struct"
+      },
+      "input_data_schema":{
+         "fields":[
+            {
+               "name":"CheckingStatus",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"LoanDuration",
+               "nullable":true,
+               "type":"integer",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"CreditHistory",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"LoanPurpose",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"LoanAmount",
+               "nullable":true,
+               "type":"integer",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"ExistingSavings",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"EmploymentDuration",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"InstallmentPercent",
+               "nullable":true,
+               "type":"integer",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"Sex",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"OthersOnLoan",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"CurrentResidenceDuration",
+               "nullable":true,
+               "type":"integer",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"OwnsProperty",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"Age",
+               "nullable":true,
+               "type":"integer",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"InstallmentPlans",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"Housing",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"ExistingCreditsCount",
+               "nullable":true,
+               "type":"integer",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"Job",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"Dependents",
+               "nullable":true,
+               "type":"integer",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"Telephone",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            },
+            {
+               "name":"ForeignWorker",
+               "nullable":true,
+               "type":"string",
+               "metadata":{
+
+               }
+            }
+         ],
+         "type":"struct"
+      }
+   }
 }
