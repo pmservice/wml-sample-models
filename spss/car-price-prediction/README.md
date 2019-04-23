@@ -1,0 +1,1 @@
+Use an SPSS regression model to predict the price of a car.
