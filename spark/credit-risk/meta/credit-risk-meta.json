@@ -381,16 +381,14 @@
           }
         }, 
         {
-          "metadata": {
-            "modeling_role": "prediction"
-          }, 
-          "name": "prediction", 
+          "metadata": {},
+          "name": "prediction",  
           "nullable": true, 
           "type": "double"
         }, 
         {
           "metadata": {
-            "modeling_role": "decoded-target",
+            "modeling_role": "prediction",
             "values": [
                "No Risk",
                "Risk"
