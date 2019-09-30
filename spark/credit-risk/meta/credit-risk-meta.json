@@ -409,7 +409,7 @@
             "password": "G_2jp_K2avMY",
             "username": "dash11348"
           },
-            "name": "Drug training data",
+            "name": "German credit risk training data",
             "source": {
               "tablename": "CREDIT_RISK_TRAIN_DATA",
               "type": "dashdb"
@@ -580,7 +580,7 @@
           "password": "G_2jp_K2avMY", 
           "username": "dash11348"
         }, 
-        "name": "Credit risk training data", 
+        "name": "German credit risk training data", 
         "source": {
           "tablename": "CREDIT_RISK_TRAIN_DATA", 
           "type": "dashdb"
