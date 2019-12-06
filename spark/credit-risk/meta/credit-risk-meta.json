@@ -402,19 +402,19 @@
       "type": "struct"
     }, 
     "training_data_reference": [
-        {
-          "connection": {
-            "db": "BLUDB",
-            "host": "dashdb-entry-yp-dal09-09.services.dal.bluemix.net",
-            "password": "G_2jp_K2avMY",
-            "username": "dash11348"
-          },
-            "name": "German credit risk training data",
-            "source": {
-              "tablename": "CREDIT_RISK_TRAIN_DATA",
-              "type": "dashdb"
-             }
-          }
+        { 
+            "connection":{ 
+               "db":"BLUDB",
+               "host":"dashdb-txn-sbox-yp-dal09-03.services.dal.bluemix.net",
+               "password":"khhz72v+6mcwwkfv",
+               "username":"cmb91569"
+            },
+            "name":"German credit risk training data",
+            "source":{ 
+               "tablename":"CREDIT_RISK_TRAIN_DATA",
+               "type":"db2"
+            }
+         }
     ],
     "training_data_schema": {
       "fields": [
